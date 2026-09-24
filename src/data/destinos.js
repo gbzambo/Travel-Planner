@@ -54,6 +54,62 @@ const destinos = [
       "rio",
     ],
   },
+
+  {
+    id: 2,
+
+    cidade: "Roma",
+    pais: "Itália",
+    continente: "Europa",
+
+    informacoes: {
+      descricao:
+        "Roma é uma cidade marcada por história, arquitetura, gastronomia e monumentos que atravessam diferentes períodos da civilização.",
+
+      clima: "Mediterrâneo",
+
+      localizacao: "Europa Meridional",
+    },
+
+    imagens: [
+      "/paris.webp",
+    ],
+
+    filme: {
+      titulo: "Filme de teste — Roma",
+
+      ano: 2020,
+
+      imagem: "/paris.webp",
+
+      descricao:
+        "Imagem e descrição provisórias utilizadas apenas para testar o sistema de destinos dinâmicos.",
+
+      relacaoComDestino:
+        "Texto provisório para testar se os dados exibidos mudam de acordo com o destino selecionado.",
+    },
+
+    experiencias: [
+      {
+        id: 1,
+
+        titulo: "Quero viver isso em Roma",
+
+        texto:
+          "Conhecer as ruas da cidade, observar a arquitetura histórica e experimentar a gastronomia italiana.",
+
+        imagem: "/paris.webp",
+      },
+    ],
+
+    elementosVisuais: [
+      "Coliseu",
+      "pizza",
+      "arquitetura",
+      "história",
+      "ruas",
+    ],
+  },
 ]
 
 export default destinos
