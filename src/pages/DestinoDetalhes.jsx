@@ -1,16 +1,51 @@
+import { Link, useParams } from "react-router-dom"
 import destinos from "../data/destinos"
-import { useParams } from "react-router-dom"
 
 function DestinoDetalhes() {
   const { id } = useParams()
 
-const destino = destinos.find(
-  (destino) => destino.id === Number(id)
-)
+  const destino = destinos.find(
+    (destino) => destino.id === Number(id)
+  )
+
+  if (!destino) {
+    return (
+      <main className="min-h-screen bg-[#e8f0ed] px-8 py-16">
+        <section className="mx-auto max-w-7xl">
+
+          <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
+            Destino não encontrado
+          </p>
+
+          <h1 className="mt-4 text-6xl font-medium tracking-[-0.04em] text-gray-900">
+            Esse destino não existe.
+          </h1>
+
+          <Link
+            to="/destinos"
+            className="mt-8 inline-flex items-center gap-2 border-b border-gray-900 pb-2 text-sm font-medium text-gray-900"
+          >
+            <span>←</span>
+            Voltar para destinos
+          </Link>
+
+        </section>
+      </main>
+    )
+  }
 
   return (
     <main className="min-h-screen bg-[#e8f0ed] px-8 py-16">
       <section className="mx-auto max-w-7xl">
+
+        {/* Voltar para destinos */}
+        <Link
+          to="/destinos"
+          className="mb-12 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-gray-900"
+        >
+          <span>←</span>
+          Voltar para destinos
+        </Link>
 
         {/* Cabeçalho do destino */}
         <div className="mb-16">
