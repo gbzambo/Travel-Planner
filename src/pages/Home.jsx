@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import destinos from "../data/destinos"
 
 function Home() {
@@ -21,13 +22,13 @@ function Home() {
             que fazem cada destino ter um significado.
           </p>
 
-          <a
-            href="/destinos"
+          <Link
+            to="/destinos"
             className="mt-10 inline-flex items-center gap-3 border-b border-gray-900 pb-2 text-sm font-medium text-gray-900 transition-opacity hover:opacity-50"
           >
             Explorar destinos
             <span>→</span>
-          </a>
+          </Link>
         </div>
 
         <div className="relative h-[520px] overflow-hidden rounded-[2rem]">
