@@ -2,17 +2,28 @@ import { useState } from "react"
 
 import { buscarCidade } from "../services/geocoding"
 import { buscarContinente } from "../services/countries"
+import { salvarDestino } from "../services/destinos"
 
 function AdicionarDestino() {
+  // Dados encontrados pela API
   const [cidadeDigitada, setCidadeDigitada] = useState("")
-
   const [pais, setPais] = useState("")
   const [continente, setContinente] = useState("")
   const [regiao, setRegiao] = useState("")
 
-  // Dados usados futuramente pelo mapa
+  // Coordenadas usadas futuramente pelo mapa
   const [latitude, setLatitude] = useState("")
   const [longitude, setLongitude] = useState("")
+
+  // Dados preenchidos pelo usuário
+  const [descricao, setDescricao] = useState("")
+
+  const [experienciaTitulo, setExperienciaTitulo] = useState("")
+  const [experienciaTexto, setExperienciaTexto] = useState("")
+
+  const [filmeTitulo, setFilmeTitulo] = useState("")
+  const [filmeAno, setFilmeAno] = useState("")
+  const [filmeRelacao, setFilmeRelacao] = useState("")
 
   const [destinoEncontrado, setDestinoEncontrado] = useState(false)
 
@@ -52,6 +63,50 @@ function AdicionarDestino() {
     console.log("Latitude:", cidade.latitude)
     console.log("Longitude:", cidade.longitude)
   }
+
+  function adicionarDestino() {
+  const novoDestino = {
+    id: Date.now(),
+
+    cidade: cidadeDigitada,
+    pais,
+    continente,
+
+    informacoes: {
+      descricao,
+      clima: "",
+      localizacao: regiao,
+    },
+
+    latitude,
+    longitude,
+
+    imagens: [],
+
+    filme: {
+      titulo: filmeTitulo,
+      ano: Number(filmeAno),
+      imagem: "",
+      descricao: "",
+      relacaoComDestino: filmeRelacao,
+    },
+
+    experiencias: [
+      {
+        id: 1,
+        titulo: experienciaTitulo,
+        texto: experienciaTexto,
+        imagem: "",
+      },
+    ],
+
+    elementosVisuais: [],
+  }
+
+  salvarDestino(novoDestino)
+
+  console.log("Destino salvo:", novoDestino)
+}
 
   return (
     <main className="min-h-screen bg-[#e8f0ed] px-8 py-16">
@@ -159,6 +214,10 @@ function AdicionarDestino() {
 
                   <textarea
                     rows="4"
+                    value={descricao}
+                    onChange={(event) =>
+                      setDescricao(event.target.value)
+                    }
                     placeholder="Conte um pouco sobre esse destino."
                     className="mt-2 w-full resize-none border-b border-gray-300 bg-transparent py-3 text-lg outline-none transition-colors focus:border-gray-900"
                   />
@@ -194,6 +253,7 @@ function AdicionarDestino() {
 
           <div className="space-y-8">
 
+            {/* Título */}
             <div>
               <label className="text-sm text-gray-500">
                 Título da experiência
@@ -201,11 +261,16 @@ function AdicionarDestino() {
 
               <input
                 type="text"
+                value={experienciaTitulo}
+                onChange={(event) =>
+                  setExperienciaTitulo(event.target.value)
+                }
                 placeholder="Ex: Caminhar por Paris de manhã"
                 className="mt-2 w-full border-b border-gray-300 bg-transparent py-3 text-lg outline-none transition-colors focus:border-gray-900"
               />
             </div>
 
+            {/* Descrição */}
             <div>
               <label className="text-sm text-gray-500">
                 Descrição da experiência
@@ -213,6 +278,10 @@ function AdicionarDestino() {
 
               <textarea
                 rows="4"
+                value={experienciaTexto}
+                onChange={(event) =>
+                  setExperienciaTexto(event.target.value)
+                }
                 placeholder="O que você gostaria de viver nesse lugar?"
                 className="mt-2 w-full resize-none border-b border-gray-300 bg-transparent py-3 text-lg outline-none transition-colors focus:border-gray-900"
               />
@@ -237,6 +306,7 @@ function AdicionarDestino() {
 
           <div className="space-y-8">
 
+            {/* Título */}
             <div>
               <label className="text-sm text-gray-500">
                 Título do filme
@@ -244,11 +314,16 @@ function AdicionarDestino() {
 
               <input
                 type="text"
+                value={filmeTitulo}
+                onChange={(event) =>
+                  setFilmeTitulo(event.target.value)
+                }
                 placeholder="Ex: Meia-Noite em Paris"
                 className="mt-2 w-full border-b border-gray-300 bg-transparent py-3 text-lg outline-none transition-colors focus:border-gray-900"
               />
             </div>
 
+            {/* Ano */}
             <div>
               <label className="text-sm text-gray-500">
                 Ano
@@ -256,11 +331,16 @@ function AdicionarDestino() {
 
               <input
                 type="number"
+                value={filmeAno}
+                onChange={(event) =>
+                  setFilmeAno(event.target.value)
+                }
                 placeholder="Ex: 2011"
                 className="mt-2 w-full border-b border-gray-300 bg-transparent py-3 text-lg outline-none transition-colors focus:border-gray-900"
               />
             </div>
 
+            {/* Relação com destino */}
             <div>
               <label className="text-sm text-gray-500">
                 Por que esse filme representa o destino?
@@ -268,6 +348,10 @@ function AdicionarDestino() {
 
               <textarea
                 rows="5"
+                value={filmeRelacao}
+                onChange={(event) =>
+                  setFilmeRelacao(event.target.value)
+                }
                 placeholder="Explique a relação entre o filme e o lugar."
                 className="mt-2 w-full resize-none border-b border-gray-300 bg-transparent py-3 text-lg outline-none transition-colors focus:border-gray-900"
               />
@@ -279,10 +363,11 @@ function AdicionarDestino() {
 
         {/* Botão final */}
         <button
-          type="button"
-          className="border-b border-gray-900 pb-2 text-sm font-medium text-gray-900 transition-opacity hover:opacity-50"
+            type="button"
+            onClick={adicionarDestino}
+            className="border-b border-gray-900 pb-2 text-sm font-medium text-gray-900 transition-opacity hover:opacity-50"
         >
-          Adicionar destino →
+            Adicionar destino →
         </button>
 
       </section>

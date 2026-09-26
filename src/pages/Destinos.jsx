@@ -1,7 +1,21 @@
+import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
+
 import destinos from "../data/destinos"
+import { buscarDestinos } from "../services/destinos"
 
 function Destinos() {
+  const [todosOsDestinos, setTodosOsDestinos] = useState(destinos)
+
+  useEffect(() => {
+    const destinosSalvos = buscarDestinos()
+
+    setTodosOsDestinos([
+      ...destinos,
+      ...destinosSalvos,
+    ])
+  }, [])
+
   return (
     <main className="min-h-screen bg-[#e8f0ed] px-8 py-16">
       <section className="mx-auto max-w-7xl">
@@ -18,7 +32,7 @@ function Destinos() {
 
         <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
 
-          {destinos.map((destino) => (
+          {todosOsDestinos.map((destino) => (
             <Link
               key={destino.id}
               to={`/destinos/${destino.id}`}

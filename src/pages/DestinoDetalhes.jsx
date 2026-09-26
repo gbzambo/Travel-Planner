@@ -1,12 +1,28 @@
+import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
+
 import destinos from "../data/destinos"
+import { buscarDestinos } from "../services/destinos"
 
 function DestinoDetalhes() {
   const { id } = useParams()
 
-  const destino = destinos.find(
-    (destino) => destino.id === Number(id)
-  )
+  const [destino, setDestino] = useState(null)
+
+  useEffect(() => {
+    const destinosSalvos = buscarDestinos()
+
+    const todosOsDestinos = [
+      ...destinos,
+      ...destinosSalvos,
+    ]
+
+    const destinoEncontrado = todosOsDestinos.find(
+      (destino) => destino.id === Number(id)
+    )
+
+    setDestino(destinoEncontrado)
+  }, [id])
 
   if (!destino) {
     return (
