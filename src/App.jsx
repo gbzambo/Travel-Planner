@@ -5,6 +5,7 @@ import Home from "./pages/Home"
 import Destinos from "./pages/Destinos"
 import DestinoDetalhes from "./pages/DestinoDetalhes"
 import Mapa from "./pages/Mapa"
+import AdicionarDestino from "./pages/AdicionarDestino"
 
 function App() {
   return (
@@ -13,9 +14,26 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/destinos" element={<Destinos />} />
-        <Route path="/destinos/:id" element={<DestinoDetalhes />} />
-        <Route path="/mapa" element={<Mapa />} />
+
+        <Route
+          path="/destinos"
+          element={<Destinos />}
+        />
+
+        <Route
+          path="/destinos/:id"
+          element={<DestinoDetalhes />}
+        />
+
+        <Route
+          path="/mapa"
+          element={<Mapa />}
+        />
+
+        <Route
+          path="/adicionar-destino"
+          element={<AdicionarDestino />}
+        />
       </Routes>
     </BrowserRouter>
   )

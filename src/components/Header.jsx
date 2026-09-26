@@ -4,6 +4,7 @@ function Header() {
   return (
     <header className="px-8 py-6">
       <nav className="flex items-center justify-between">
+
         <Link
           to="/"
           className="text-xl font-semibold"
@@ -12,6 +13,7 @@ function Header() {
         </Link>
 
         <div className="flex items-center gap-8">
+
           <Link to="/">
             Início
           </Link>
@@ -23,7 +25,13 @@ function Header() {
           <Link to="/mapa">
             Mapa
           </Link>
+
+          <Link to="/adicionar-destino">
+            Adicionar destino
+          </Link>
+
         </div>
+
       </nav>
     </header>
   )
