@@ -2,17 +2,23 @@ import { Link } from "react-router-dom"
 
 function Header() {
   return (
-    <header className="px-8 py-6">
-      <nav className="flex items-center justify-between">
+    <header className="site-header">
+      <nav className="site-nav">
 
         <Link
           to="/"
-          className="text-xl font-semibold"
+          className="site-logo"
         >
-          Travel Planner
+          <span className="site-logo-mark">
+            TP
+          </span>
+
+          <span className="site-logo-name">
+            Travel Planner
+          </span>
         </Link>
 
-        <div className="flex items-center gap-8">
+        <div className="site-nav-links">
 
           <Link to="/">
             Início
@@ -22,12 +28,8 @@ function Header() {
             Destinos
           </Link>
 
-          <Link to="/mapa">
-            Mapa
-          </Link>
-
           <Link to="/adicionar-destino">
-            Adicionar destino
+            Adicionar
           </Link>
 
         </div>

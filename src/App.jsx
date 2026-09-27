@@ -4,7 +4,6 @@ import Header from "./components/Header"
 import Home from "./pages/Home"
 import Destinos from "./pages/Destinos"
 import DestinoDetalhes from "./pages/DestinoDetalhes"
-import Mapa from "./pages/Mapa"
 import AdicionarDestino from "./pages/AdicionarDestino"
 
 function App() {
@@ -25,10 +24,6 @@ function App() {
           element={<DestinoDetalhes />}
         />
 
-        <Route
-          path="/mapa"
-          element={<Mapa />}
-        />
 
         <Route
           path="/adicionar-destino"

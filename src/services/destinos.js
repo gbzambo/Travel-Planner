@@ -7,7 +7,11 @@ export function buscarDestinos() {
     return []
   }
 
-  return JSON.parse(destinosSalvos)
+  try {
+    return JSON.parse(destinosSalvos)
+  } catch {
+    return []
+  }
 }
 
 export function salvarDestino(destino) {

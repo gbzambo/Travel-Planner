@@ -15,7 +15,7 @@ const paises = [
             titulo: "Esquiar nos Alpes",
             texto:
               "Quero viver a experiência de passar alguns dias entre neve, montanhas e estações de esqui nos Alpes.",
-            imagem: "/stmoritz.jpg",
+            imagem: "/expesquiar.jpg",
           },
         ],
       },
@@ -28,7 +28,7 @@ const paises = [
             titulo: "Caminhar pelos Alpes",
             texto:
               "Quero caminhar pelas paisagens alpinas, passando por vilarejos e montanhas cobertas de neve.",
-            imagem: "/gstaad.avif",
+            imagem: "/expgstaad.jpg",
           },
         ],
       },
@@ -41,7 +41,7 @@ const paises = [
             titulo: "Ver o Matterhorn",
             texto:
               "Quero conhecer Zermatt e caminhar pela vila tendo o Matterhorn como cenário.",
-            imagem: "/zermatt.jpg",
+            imagem: "/expzermatt.webp",
           },
         ],
       },
@@ -54,7 +54,7 @@ const paises = [
             titulo: "Lagos e montanhas",
             texto:
               "Quero passar alguns dias entre os lagos e as montanhas da região de Interlaken.",
-            imagem: "/interlaken.jpg",
+            imagem: "/expinterlaken.jpg",
           },
         ],
       },
@@ -89,25 +89,25 @@ const paises = [
             titulo: "Natal em Nova York",
             texto:
               "Quero conhecer Nova York durante o Natal, caminhar pela cidade à noite e sentir a atmosfera das ruas iluminadas.",
-            imagem: "/nyc.jpg",
+            imagem: "/expnyc.jpeg",
           },
           {
             titulo: "Assistir a um jogo da NBA",
             texto:
               "Quero assistir a uma partida de playoffs da NBA em Nova York, se houver essa possibilidade durante a viagem.",
-            imagem: "/nyc.jpg",
+            imagem: "/expnyc3.jpeg",
           },
           {
             titulo: "Caminhar pela cidade à noite",
             texto:
               "Quero simplesmente andar por Manhattan à noite, vendo as luzes, os prédios e o movimento da cidade.",
-            imagem: "/nyc.jpg",
+            imagem: "/expnyc2.avif",
           },
           {
             titulo: "Super Bowl",
             texto:
               "Quero viver a experiência de estar nos Estados Unidos durante um Super Bowl.",
-            imagem: "/nyc.jpg",
+            imagem: "/expsuperbowl.jpeg",
           },
         ],
       },
@@ -121,7 +121,7 @@ const paises = [
             titulo: "Dirigir durante o pôr do sol",
             texto:
               "Quero fazer uma viagem de carro por Los Angeles durante o pôr do sol.",
-            imagem: "/losangeles.jpg",
+            imagem: "/explosangeles.jpg",
           },
         ],
       },
@@ -135,7 +135,7 @@ const paises = [
             titulo: "Caminhar pela cidade à noite",
             texto:
               "Quero caminhar por Miami em uma noite quente, sentindo o clima da cidade.",
-            imagem: "/miami.jpg",
+            imagem: "/expmiami.jpeg",
           },
         ],
       },
@@ -188,7 +188,7 @@ const paises = [
             titulo: "Andar de jet ski",
             texto:
               "Quero passar um dia no litoral de Marbella e andar de jet ski.",
-            imagem: "/marbella.jpg",
+            imagem: "/expmarbella.jpg",
           },
         ],
       },
@@ -202,7 +202,7 @@ const paises = [
             titulo: "Noite em Ibiza",
             texto:
               "Quero conhecer a vida noturna de Ibiza e passar uma noite em algum dos clubes da ilha.",
-            imagem: "/ibiza.webp",
+            imagem: "/expibiza.jpeg",
           },
         ],
       },
@@ -216,7 +216,7 @@ const paises = [
             titulo: "Assistir a um jogo do Barcelona",
             texto:
               "Quero assistir a uma partida do Barcelona no estádio.",
-            imagem: "/barcelonaa.jpeg",
+            imagem: "/expbarcelona.jpeg",
           },
         ],
       },
@@ -306,31 +306,31 @@ const paises = [
             titulo: "Tomar café em um café parisiense",
             texto:
               "Quero sentar em um café parisiense, pedir alguma coisa e simplesmente observar a cidade.",
-            imagem: "/paris.webp",
+            imagem: "/expparis1.webp",
           },
           {
             titulo: "Jantar em um bom restaurante",
             texto:
               "Quero ter uma noite em um restaurante realmente bom em Paris.",
-            imagem: "/paris.webp",
+            imagem: "/expparis2.jpg",
           },
           {
             titulo: "Conhecer o Louvre",
             texto:
               "Quero passar algumas horas conhecendo o Louvre.",
-            imagem: "/paris.webp",
+            imagem: "/expparis3.webp",
           },
           {
             titulo: "Ver a Torre Eiffel à noite",
             texto:
               "Quero chegar à Torre Eiffel durante a noite e observar a cidade iluminada.",
-            imagem: "/paris.webp",
+            imagem: "/expparis1.webp",
           },
           {
             titulo: "Caminhar por Paris",
             texto:
               "Quero passar um dia inteiro simplesmente caminhando pela cidade.",
-            imagem: "/paris.webp",
+            imagem: "/expparis2.jpg",
           },
         ],
       },
@@ -344,7 +344,7 @@ const paises = [
             titulo: "Passeio de barco",
             texto:
               "Quero alugar ou fazer um passeio de barco pelo litoral de Saint-Tropez.",
-            imagem: "/sttropez.jpeg",
+            imagem: "/expsttropez.jpg",
           },
         ],
       },
@@ -397,27 +397,27 @@ const paises = [
             titulo: "Caminhar por Roma",
             texto:
               "Quero caminhar por Roma durante a tarde, conhecer seus monumentos e parar para comer alguma coisa pelo caminho.",
-            imagem: "/roma.avif",
+            imagem: "/expromacoliseu.jpg",
           },
           {
             titulo: "Conhecer a Fontana di Trevi",
             texto:
               "Quero conhecer a Fontana di Trevi durante o dia.",
-            imagem: "/roma.avif",
+            imagem: "/expfontana.webp",
           },
         ],
       },
 
       {
         id: 602,
-        nome: "Lake Como",
+        nome: "Lago di Como",
         imagem: "/lagodicomo.webp",
         experiencias: [
           {
             titulo: "Conhecer os vilarejos do lago",
             texto:
               "Quero conhecer os pequenos vilarejos ao redor do Lago di Como.",
-            imagem: "/lagodicomo.webp",
+            imagem: "/explagodicomo.jpg",
           },
         ],
       },
@@ -431,7 +431,7 @@ const paises = [
             titulo: "Caminhar pelos canais à noite",
             texto:
               "Quero conhecer Veneza principalmente durante a noite, caminhando pelos canais e ruas históricas.",
-            imagem: "/veneza.webp",
+            imagem: "/expveneza.jpg",
           },
         ],
       },
@@ -445,7 +445,7 @@ const paises = [
             titulo: "Pequenas cidades e comida",
             texto:
               "Quero conhecer pequenas cidades da Sicília, comer bem e viver um ritmo mais lento perto do Mediterrâneo.",
-            imagem: "/sicilia.jpeg",
+            imagem: "/expsicilia.jpg",
           },
         ],
       },
@@ -459,71 +459,29 @@ const paises = [
             titulo: "Alugar um barco",
             texto:
               "Quero alugar um barco e passar um dia conhecendo a costa pelo mar.",
-            imagem: "/costaamlfitana.png",
+            imagem: "/expcostaamalfitana.jpg",
           },
         ],
       },
     ],
 
     referencias: [
-  {
-    titulo: "O Sol por Testemunha",
-    tipo: "Filme · Referência pessoal",
-
-    imagens: [
-      "/purplenoon.jpg",
-      "/purplenoon2.jpg",
-      "/purplenoon3.jpg",
-    ],
-
-    sinopse:
-      "Clássico francês de 1960, marcado pela estética mediterrânea, pelo verão e pelas paisagens do sul da Europa.",
-
-    motivo:
-      "Foi o filme que me inspirou a fazer este projeto. A estética absurdamente bonita me fez querer viver algo parecido e representa perfeitamente a experiência que imagino ao conhecer o Mediterrâneo.",
-  },
+      {
+        titulo: "O Sol por Testemunha",
+        tipo: "Filme · Referência pessoal",
+        imagens: [
+          "/purplenoon.jpg",
+          "/purplenoon2.jpg",
+          "/purplenoon3.jpg",
+        ],
+        sinopse:
+          "Clássico francês de 1960, marcado pela estética mediterrânea, pelo verão e pelas paisagens do sul da Europa.",
+        motivo:
+          "Foi o filme que me inspirou a fazer este projeto. A estética absurdamente bonita me fez querer viver algo parecido e representa perfeitamente a experiência que imagino ao conhecer o Mediterrâneo.",
+      },
     ],
   },
-  {
-  id: "BR",
-  nome: "Brasil",
-  continente: "América do Sul",
 
-  lugares: [
-    {
-      id: "rio-de-janeiro",
-      nome: "Rio de Janeiro",
-      tipo: "Cidade",
-
-      imagem: "/rj.jpg",
-
-      experiencias: [
-        {
-          titulo: "Viver o Rio entre o mar e as montanhas",
-          descricao:
-            "Conhecer o Cristo Redentor, o Pão de Açúcar e as praias, aproveitando a combinação de natureza, cidade e paisagem que faz parte da identidade do Rio."
-        },
-        {
-          titulo: "Passar um dia explorando o Rio",
-          descricao:
-            "Caminhar por diferentes partes da cidade, conhecer bairros, restaurantes e lugares históricos, sem pressa, absorvendo a atmosfera carioca."
-        }
-      ]
-    }
-  ],
-
-  referencias: [
-    {
-      titulo: "Cidade de Deus",
-      tipo: "Filme · Referência pessoal",
-      imagens: ["/cidadededeus.jpg"],
-      sinopse:
-        "Filme brasileiro de 2002 dirigido por Fernando Meirelles e Kátia Lund, ambientado na Cidade de Deus, no Rio de Janeiro.",
-      motivo:
-        "Uma das referências cinematográficas mais marcantes ligadas ao Rio de Janeiro."
-    }
-  ]
-},
   {
     id: 7,
     nome: "Austrália",
@@ -540,7 +498,7 @@ const paises = [
             titulo: "Surfar",
             texto:
               "Quero passar alguns dias na Gold Coast e aprender ou praticar surf.",
-            imagem: "/goldcoast.webp",
+            imagem: "/expgoldcoast.jpeg",
           },
         ],
       },
@@ -554,7 +512,7 @@ const paises = [
             titulo: "Correr na praia de manhã",
             texto:
               "Quero correr pela praia durante a manhã e depois caminhar pela cidade.",
-            imagem: "/sydney.webp",
+            imagem: "/expsydney.jpeg",
           },
           {
             titulo: "Caminhar pela cidade",
@@ -595,13 +553,13 @@ const paises = [
             titulo: "Conhecer o Big Ben",
             texto:
               "Quero conhecer o Big Ben e caminhar pelo centro histórico de Londres.",
-            imagem: "/londres.webp",
+            imagem: "/explondres1.webp",
           },
           {
             titulo: "Caminhar por Londres à noite",
             texto:
               "Quero caminhar pela cidade durante a noite e observar sua arquitetura iluminada.",
-            imagem: "/londres.webp",
+            imagem: "/explondres2.jpeg",
           },
         ],
       },
@@ -609,13 +567,13 @@ const paises = [
       {
         id: 802,
         nome: "Liverpool",
-        imagem: "/liverpool.jpg",
+        imagem: "/liverpool.webp",
         experiencias: [
           {
             titulo: "Conhecer Anfield",
             texto:
               "Quero conhecer Anfield e assistir a um jogo do Liverpool.",
-            imagem: "",
+            imagem: "/expliverpool.jpeg",
           },
         ],
       },
@@ -650,19 +608,19 @@ const paises = [
             titulo: "Conhecer os museus",
             texto:
               "Quero passar alguns dias conhecendo os museus e o lado cultural da cidade.",
-            imagem: "/amsterdam.webp",
+            imagem: "/expamsterdam1.jpg",
           },
           {
             titulo: "Conhecer os campos de flores",
             texto:
               "Quero conhecer os campos de flores próximos a Amsterdam.",
-            imagem: "/amsterdam.webp",
+            imagem: "/expamsterdam2.jpeg",
           },
           {
             titulo: "Caminhar pelos canais à noite",
             texto:
               "Quero caminhar pelos canais durante a noite.",
-            imagem: "/amsterdam.webp",
+            imagem: "/expamsterdam3.jpeg",
           },
         ],
       },
@@ -697,7 +655,7 @@ const paises = [
             titulo: "Centro histórico e igrejas",
             texto:
               "Quero caminhar pelo centro histórico de Munique e conhecer suas igrejas e construções históricas.",
-            imagem: "",
+            imagem: "/expmunique.jpg",
           },
         ],
       },
@@ -711,13 +669,13 @@ const paises = [
             titulo: "Caminhar pela cidade",
             texto:
               "Quero caminhar por Berlim conhecendo sua arquitetura e diferentes bairros.",
-            imagem: "/berlim.jpeg",
+            imagem: "/expberlin.jpeg",
           },
           {
             titulo: "Conhecer a vida noturna",
             texto:
               "Quero conhecer a vida noturna de Berlim.",
-            imagem: "/berlim.jpeg",
+            imagem: "/expberlin.jpeg",
           },
         ],
       },
@@ -731,7 +689,7 @@ const paises = [
             titulo: "Conhecer uma catedral gótica",
             texto:
               "Quero conhecer a Catedral de Colônia e outras igrejas góticas da Alemanha.",
-            imagem: "",
+            imagem: "/expcolonia.gif",
           },
         ],
       },
@@ -766,19 +724,19 @@ const paises = [
             titulo: "Natal na neve",
             texto:
               "Quero passar o Natal na Lapônia cercado por neve.",
-            imagem: "/laponia.webp",
+            imagem: "/explaponia.webp",
           },
           {
             titulo: "Ver a Aurora Boreal",
             texto:
               "Quero ver a Aurora Boreal durante uma noite na Lapônia.",
-            imagem: "/laponia.webp",
+            imagem: "/explaponia.webp",
           },
           {
             titulo: "Andar de trenó",
             texto:
               "Quero andar de trenó em meio à neve.",
-            imagem: "/expressopolar.webp",
+            imagem: "/exprespolar.webp",
           },
         ],
       },
@@ -813,7 +771,7 @@ const paises = [
             titulo: "Conhecer as Pirâmides de Gizé",
             texto:
               "Quero conhecer as Pirâmides de Gizé pessoalmente.",
-            imagem: "/cairo.jpg",
+            imagem: "/expcairo.jpg",
           },
         ],
       },
@@ -848,7 +806,7 @@ const paises = [
             titulo: "Conhecer Machu Picchu",
             texto:
               "Quero conhecer Machu Picchu pessoalmente e passar alguns dias explorando a região dos Andes.",
-            imagem: "/machupicchu.jpg",
+            imagem: "/expperu.webp",
           },
         ],
       },
@@ -883,13 +841,13 @@ const paises = [
             titulo: "Conhecer os bairros históricos",
             texto:
               "Quero caminhar pelos bairros históricos de Lisboa e conhecer seus miradouros e cafés.",
-            imagem: "/lisboa.webp",
+            imagem: "/explisboa1.jpg",
           },
           {
             titulo: "Caminhar à noite",
             texto:
               "Quero caminhar por Lisboa durante a noite.",
-            imagem: "/lisboa.webp",
+            imagem: "/explisboa2.webp",
           },
         ],
       },
@@ -897,9 +855,9 @@ const paises = [
 
     referencias: [
       {
-        titulo: "007",
+        titulo: "007 - A serviço secreto de sua Majestade",
         tipo: "Filme · Cena / Localização",
-        imagem: "/007lisboa.jpeg",
+        imagem: "/lisboaa.jpg",
         sinopse:
           "Referência cinematográfica ligada a Portugal e ao universo de James Bond.",
         motivo:
@@ -917,27 +875,27 @@ const paises = [
     lugares: [
       {
         id: 1501,
-        nome: "Athens",
+        nome: "Atenas",
         imagem: "/atenasmelhor.jpg",
         experiencias: [
           {
             titulo: "Conhecer a Acrópole",
             texto:
               "Quero conhecer a Acrópole e caminhar pela cidade imaginando a história da Grécia Antiga.",
-            imagem: "/atenasmelhor.jpg",
+            imagem: "/expatenas1.jpg",
           },
           {
             titulo: "Conhecer a história e filosofia",
             texto:
               "Quero visitar os lugares ligados à história e à filosofia da Grécia Antiga.",
-            imagem: "/atenasmelhor.jpg",
+            imagem: "/expatenas2.webp",
           },
         ],
       },
 
       {
         id: 1502,
-        nome: "Mykonos",
+        nome: "Santorini",
         imagem: "/santorini.webp",
         experiencias: [
           {
@@ -979,13 +937,13 @@ const paises = [
             titulo: "Caminhar no fim da tarde",
             texto:
               "Quero caminhar por Viena no fim da tarde e durante a noite, conhecendo sua arquitetura histórica.",
-            imagem: "/viena.jpg",
+            imagem: "/expviena1.webp",
           },
           {
             titulo: "Cafés históricos",
             texto:
               "Quero passar algumas horas em cafés tradicionais de Viena.",
-            imagem: "/viena.jpg",
+            imagem: "/expviena2.jpeg",
           },
         ],
       },
@@ -1020,19 +978,19 @@ const paises = [
             titulo: "Conhecer o Danúbio",
             texto:
               "Quero caminhar às margens do Danúbio e observar a cidade iluminada.",
-            imagem: "/budapeste.jpg",
+            imagem: "/expbudapeste1.avif",
           },
           {
             titulo: "Budapeste à noite",
             texto:
               "Quero conhecer a cidade durante a noite e ver seus prédios iluminados.",
-            imagem: "/budapeste.jpg",
+            imagem: "/expbudapeste2.webp",
           },
           {
             titulo: "Termas",
             texto:
               "Quero conhecer os famosos banhos termais de Budapeste.",
-            imagem: "/hotelbudapeste.jpg",
+            imagem: "/expbudapeste3.jpeg",
           },
         ],
       },
@@ -1067,7 +1025,7 @@ const paises = [
             titulo: "Conhecer a megacidade à noite",
             texto:
               "Quero caminhar por Shanghai durante a noite e observar seus arranha-céus e luzes.",
-            imagem: "/xangai.jpg",
+            imagem: "/expxangai.webp",
           },
         ],
       },
@@ -1081,7 +1039,7 @@ const paises = [
             titulo: "Conhecer a cidade futurista",
             texto:
               "Quero caminhar por Chongqing durante a noite e conhecer sua arquitetura extremamente vertical e futurista.",
-            imagem: "/chongqing.webp",
+            imagem: "/expchongqing.jpeg",
           },
         ],
       },
@@ -1116,13 +1074,13 @@ const paises = [
             titulo: "Caminhar pela arquitetura histórica",
             texto:
               "Quero caminhar por Praga durante o dia e principalmente à noite, observando sua arquitetura.",
-            imagem: "/praga.webp",
+            imagem: "/exppraga1.avif",
           },
           {
             titulo: "Cafés",
             texto:
               "Quero conhecer os cafés históricos da cidade.",
-            imagem: "/praga.webp",
+            imagem: "/exppraga2.webp",
           },
         ],
       },
@@ -1157,19 +1115,19 @@ const paises = [
             titulo: "Conhecer a Grand-Place",
             texto:
               "Quero conhecer a Grand-Place e caminhar pelo centro histórico de Bruxelas.",
-            imagem: "/bruxelas.jpg",
+            imagem: "/expbruxelas1.jpeg",
           },
           {
             titulo: "Comer waffles e chocolate",
             texto:
               "Quero experimentar waffles e chocolates belgas enquanto caminho pela cidade.",
-            imagem: "/bruxelas.jpg",
+            imagem: "/expbruxelas2.jpeg",
           },
           {
             titulo: "Caminhar à noite",
             texto:
               "Quero caminhar pelo centro histórico durante a noite.",
-            imagem: "/bruxelas.jpg",
+            imagem: "/expbruxelas3.jpeg",
           },
         ],
       },
@@ -1204,13 +1162,13 @@ const paises = [
             titulo: "Hotel perto do mar",
             texto:
               "Quero ficar em um hotel próximo ao mar e passar alguns dias aproveitando o litoral.",
-            imagem: "/cancun.jpg",
+            imagem: "/expcancun.jpg",
           },
           {
             titulo: "Passeio de barco",
             texto:
               "Quero fazer um passeio de barco pelo litoral.",
-            imagem: "/cancun.jpg",
+            imagem: "/expcancun2.jpeg",
           },
         ],
       },
@@ -1224,7 +1182,7 @@ const paises = [
             titulo: "Conhecer a cidade à noite",
             texto:
               "Quero caminhar pela Cidade do México durante a noite e conhecer sua atmosfera urbana.",
-            imagem: "/cidadedomexico.jpg",
+            imagem: "/expmexicocity.jpeg",
           },
         ],
       },
@@ -1259,19 +1217,7 @@ const paises = [
             titulo: "Conhecer as mesquitas",
             texto:
               "Quero conhecer as grandes mesquitas e a arquitetura histórica de Istambul.",
-            imagem: "/istambul.webp",
-          },
-          {
-            titulo: "Conhecer o Bósforo",
-            texto:
-              "Quero observar o Bósforo e a cidade durante o dia e à noite.",
-            imagem: "/istambul.webp",
-          },
-          {
-            titulo: "Caminhar pela cidade à noite",
-            texto:
-              "Quero caminhar pelos bairros e mercados de Istambul durante a noite.",
-            imagem: "/istambul.webp",
+            imagem: "/expturquia.webp",
           },
         ],
       },
@@ -1285,13 +1231,13 @@ const paises = [
             titulo: "Balões ao nascer do sol",
             texto:
               "Quero acordar antes do amanhecer para observar os balões sobre a Capadócia.",
-            imagem: "/capadocia.jpg",
+            imagem: "/expcapadocia.jpg",
           },
           {
             titulo: "Passeio de balão",
             texto:
               "Quero fazer um voo de balão sobre a região.",
-            imagem: "/capadocia.jpg",
+            imagem: "/expcapadocia.jpg",
           },
         ],
       },
@@ -1326,19 +1272,19 @@ const paises = [
             titulo: "Andar de quadriciclo no deserto",
             texto:
               "Quero andar de quadriciclo pelo deserto.",
-            imagem: "/dubai.jpg",
+            imagem: "/expdubai1.jpg",
           },
           {
             titulo: "Conhecer o Burj Khalifa",
             texto:
               "Quero conhecer o Burj Khalifa e observar Dubai do alto.",
-            imagem: "/dubai.jpg",
+            imagem: "/expdubai2.webp",
           },
           {
             titulo: "Pôr do sol no deserto",
             texto:
               "Quero passar pelo deserto durante o pôr do sol.",
-            imagem: "/dubai.jpg",
+            imagem: "/expdubai3.jpeg",
           },
         ],
       },
@@ -1352,7 +1298,7 @@ const paises = [
             titulo: "Ferrari World",
             texto:
               "Quero conhecer o Ferrari World em Abu Dhabi.",
-            imagem: "/abudhabi.jpg",
+            imagem: "/expabudhabi.jpg",
           },
         ],
       },
@@ -1370,7 +1316,8 @@ const paises = [
       },
     ],
   },
-    {
+
+  {
     id: 24,
     nome: "Brasil",
     codigo: "BR",
@@ -1387,13 +1334,13 @@ const paises = [
             titulo: "Caminhar pelo Rio durante o dia",
             texto:
               "Quero passar o dia caminhando pelo Rio de Janeiro, conhecendo seus bairros, paisagens e a atmosfera da cidade.",
-            imagem: "/rj.jpg",
+            imagem: "/exprio1.jpg",
           },
           {
             titulo: "Conhecer as praias e a orla",
             texto:
               "Quero passar um dia conhecendo as praias e caminhando pela orla do Rio de Janeiro.",
-            imagem: "/rj.jpg",
+            imagem: "/exprio2.webp",
           },
         ],
       },
@@ -1429,19 +1376,19 @@ const paises = [
             titulo: "Caminhar por Copenhagen",
             texto:
               "Quero caminhar pela cidade conhecendo sua arquitetura, canais e bairros.",
-            imagem: "/copenhagen.jpeg",
+            imagem: "/expcopenhagen.jpeg",
           },
           {
             titulo: "Bicicleta e cafés",
             texto:
               "Quero andar de bicicleta pela cidade, parar em cafés e conhecer o ritmo cotidiano de Copenhagen.",
-            imagem: "/copenhagen.jpeg",
+            imagem: "/expcopenhagen2.webp",
           },
           {
             titulo: "Caminhar por Nyhavn",
             texto:
               "Quero conhecer Nyhavn e caminhar pela região durante o fim da tarde e à noite.",
-            imagem: "/copenhagen.jpeg",
+            imagem: "/expcopenhagen3.jpeg",
           },
         ],
       },
@@ -1477,19 +1424,13 @@ const paises = [
             titulo: "Caminhar por Stockholm",
             texto:
               "Quero caminhar pela cidade conhecendo suas ruas, ilhas e arquitetura.",
-            imagem: "/estocolmo.jpg",
-          },
-          {
-            titulo: "Conhecer Gamla Stan",
-            texto:
-              "Quero conhecer Gamla Stan e caminhar pelo centro histórico de Stockholm.",
-            imagem: "/estocolmo.jpg",
+            imagem: "/expestocolmo1.webp",
           },
           {
             titulo: "Viver a atmosfera nórdica",
             texto:
               "Quero conhecer Stockholm durante o frio e sentir aquela atmosfera nórdica mais silenciosa e contemplativa.",
-            imagem: "/estocolmo.jpg",
+            imagem: "/expestocolmo2.jpeg",
           },
         ],
       },
@@ -1525,19 +1466,13 @@ const paises = [
             titulo: "Caminhar por Buenos Aires",
             texto:
               "Quero caminhar pela cidade conhecendo seus bairros, arquitetura e cafés.",
-            imagem: "/buenosaires.jpeg",
+            imagem: "/expbuenosaires1.webp",
           },
           {
-            titulo: "Conhecer Palermo e San Telmo",
+            titulo: "Ir no Monumental",
             texto:
-              "Quero passar pelos bairros de Palermo e San Telmo, conhecendo restaurantes, cafés e ruas da cidade.",
-            imagem: "/buenosaires.jpeg",
-          },
-          {
-            titulo: "Conhecer a vida noturna",
-            texto:
-              "Quero conhecer Buenos Aires durante a noite e experimentar sua vida noturna.",
-            imagem: "/buenosaires.jpeg",
+              "Como já fui na Bombonera quero ir no estádio do River Plate",
+            imagem: "/expbuenosaires2.jpg",
           },
         ],
       },
@@ -1545,7 +1480,7 @@ const paises = [
 
     referencias: [
       {
-        titulo: "Cuando Acecha la Maldad",
+        titulo: "When Evil Lurks",
         tipo: "Filme · Atmosfera",
         imagem: "/whenevillurks.jpeg",
         sinopse:
@@ -1573,19 +1508,19 @@ const paises = [
             titulo: "Conhecer a Praça Vermelha e o Kremlin",
             texto:
               "Quero conhecer a Praça Vermelha, o Kremlin e a arquitetura histórica de Moscou.",
-            imagem: "/moscou.webp",
+            imagem: "/expmoscou1.jpg",
           },
           {
             titulo: "Conhecer Moscou durante o inverno",
             texto:
               "Quero conhecer Moscou durante o frio, caminhar pela cidade e ver a arquitetura coberta de neve.",
-            imagem: "/moscou.webp",
+            imagem: "/expmoscou2.webp",
           },
           {
             titulo: "Conhecer o metrô de Moscou",
             texto:
               "Quero conhecer as estações históricas e monumentais do metrô de Moscou.",
-            imagem: "/moscou.webp",
+            imagem: "/expmoscou3.jpeg",
           },
         ],
       },
@@ -1613,7 +1548,7 @@ const paises = [
     lugares: [
       {
         id: 2901,
-        nome: "Singapore",
+        nome: "Singapura",
         imagem: "/singapura.webp",
 
         experiencias: [
@@ -1621,19 +1556,13 @@ const paises = [
             titulo: "Conhecer Marina Bay à noite",
             texto:
               "Quero caminhar pela região de Marina Bay durante a noite e observar o skyline iluminado.",
-            imagem: "/singapura.webp",
+            imagem: "/expsingapura1.avif",
           },
           {
             titulo: "Conhecer Gardens by the Bay",
             texto:
               "Quero conhecer o Gardens by the Bay e sua arquitetura futurista.",
-            imagem: "/singapura.webp",
-          },
-          {
-            titulo: "Conhecer os bairros tradicionais",
-            texto:
-              "Quero conhecer a diferença entre os bairros tradicionais e a parte extremamente moderna de Singapura.",
-            imagem: "/singapura.webp",
+            imagem: "/expsingapura2.jpeg",
           },
         ],
       },
@@ -1669,28 +1598,7 @@ const paises = [
             titulo: "Conhecer Cape Town",
             texto:
               "Quero conhecer Cape Town, sua costa, bairros e paisagens naturais.",
-            imagem: "/joanesburgo.jpeg",
-          },
-          {
-            titulo: "Conhecer a Table Mountain",
-            texto:
-              "Quero conhecer a Table Mountain e observar a cidade e o litoral do alto.",
-            imagem: "/joanesburgo.jpeg",
-          },
-        ],
-      },
-
-      {
-        id: 3002,
-        nome: "Johannesburg",
-        imagem: "/joanesburgo.jpeg",
-
-        experiencias: [
-          {
-            titulo: "Conhecer Johannesburg",
-            texto:
-              "Quero conhecer Johannesburg e entender melhor a história e a cultura da cidade.",
-            imagem: "/joanesburgo.jpeg",
+            imagem: "/expcapetown.jpg",
           },
         ],
       },
@@ -1698,14 +1606,14 @@ const paises = [
       {
         id: 3003,
         nome: "Safari",
-        imagem: "/joanesburgo.jpeg",
+        imagem: "/safari.jpg",
 
         experiencias: [
           {
             titulo: "Fazer um safari",
             texto:
               "Quero fazer um safari e ver animais como leões, elefantes, girafas e zebras em seu habitat natural.",
-            imagem: "/joanesburgo.jpeg",
+            imagem: "/expsafari.jpeg",
           },
         ],
       },
@@ -1717,9 +1625,9 @@ const paises = [
         tipo: "Filme · Localização / Atmosfera",
         imagem: "/district9.jpg",
         sinopse:
-          "Ficção científica ambientada em Johannesburg.",
+          "Ficção científica ambientada em Joanesburgo.",
         motivo:
-          "É uma referência cinematográfica diretamente ligada à África do Sul e principalmente a Johannesburg.",
+          "É uma referência cinematográfica diretamente ligada à África do Sul e principalmente a Joanesburgo.",
       },
     ],
   },

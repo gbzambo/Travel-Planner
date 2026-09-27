@@ -1,280 +1,503 @@
 import { Link, useParams } from "react-router-dom"
+import { useEffect, useState } from "react"
 
 import paises from "../data/paises"
+import { buscarDestinos } from "../services/destinos"
 
 function DestinoDetalhes() {
   const { id } = useParams()
 
-  const pais = paises.find(
-    (pais) => pais.id === Number(id)
-  )
+  const [destinoUsuario, setDestinoUsuario] =
+    useState(null)
 
-  if (!pais) {
+  useEffect(() => {
+    const destinosSalvos =
+      buscarDestinos()
+
+    const destinoEncontrado =
+      destinosSalvos.find(
+        (destino) =>
+          destino.id === Number(id)
+      )
+
+    setDestinoUsuario(
+      destinoEncontrado || null
+    )
+  }, [id])
+
+  const pais =
+    paises.find(
+      (pais) =>
+        pais.id === Number(id)
+    )
+
+  const destino =
+    pais || destinoUsuario
+
+  if (!destino) {
     return (
-      <main className="page">
+      <main className="destination-detail-page destination-not-found">
 
-        <div className="page-inner">
+        <section className="destination-detail-container">
 
-          <p className="eyebrow">
-            Atlas
+          <p className="destination-eyebrow">
+            Travel Planner
           </p>
 
-          <h1 className="display-title display-title-lg mt-5">
-            Destino não encontrado.
+          <h1>
+            Esse destino
+            <br />
+            não existe.
           </h1>
 
           <Link
             to="/destinos"
-            className="back-link mt-10"
+            className="destination-back-link"
           >
-            ← Voltar para destinos
+            <span>←</span>
+            Voltar para o mapa
           </Link>
 
-        </div>
+        </section>
+
+      </main>
+    )
+  }
+
+  if (destinoUsuario && !pais) {
+    return (
+      <main className="destination-detail-page">
+
+        <section className="destination-detail-container">
+
+          <Link
+            to="/destinos"
+            className="destination-back-link"
+          >
+            <span>←</span>
+            Voltar para o mapa
+          </Link>
+
+          <header className="destination-detail-header">
+
+            <p className="destination-eyebrow">
+              {destino.continente}
+            </p>
+
+            <h1>
+              {destino.cidade}
+            </h1>
+
+            <p className="destination-description">
+              {destino.pais}
+              {destino.informacoes?.localizacao
+                ? ` · ${destino.informacoes.localizacao}`
+                : ""}
+            </p>
+
+          </header>
+
+          {destino.imagens?.length > 0 && (
+            <section className="destination-user-hero">
+
+              <img
+                src={destino.imagens[0]}
+                alt={destino.cidade}
+              />
+
+              <div className="destination-user-hero-caption">
+
+                <span>
+                  Meu destino
+                </span>
+
+                <p>
+                  {destino.pais}
+                </p>
+
+              </div>
+
+            </section>
+          )}
+
+          {destino.informacoes?.descricao && (
+            <section className="destination-user-description">
+
+              <p className="destination-content-label">
+                Sobre o destino
+              </p>
+
+              <p>
+                {destino.informacoes.descricao}
+              </p>
+
+            </section>
+          )}
+
+          {destino.experiencias?.length > 0 && (
+            <section className="destination-references-section">
+
+              <div className="destination-section-heading">
+
+                <p className="destination-content-label">
+                  Experiência
+                </p>
+
+                <h2>
+                  Quero viver isso.
+                </h2>
+
+              </div>
+
+              <div className="user-experience-grid">
+
+                {destino.experiencias.map(
+                  (experiencia) => (
+                    <article
+                      key={experiencia.id}
+                      className="user-experience-card"
+                    >
+
+                      {experiencia.imagem && (
+                        <div className="user-experience-image">
+
+                          <img
+                            src={experiencia.imagem}
+                            alt={
+                              experiencia.titulo ||
+                              destino.cidade
+                            }
+                          />
+
+                        </div>
+                      )}
+
+                      <div className="user-experience-content">
+
+                        <p>
+                          Experiência
+                        </p>
+
+                        {experiencia.titulo && (
+                          <h3>
+                            {experiencia.titulo}
+                          </h3>
+                        )}
+
+                        {experiencia.texto && (
+                          <span>
+                            {experiencia.texto}
+                          </span>
+                        )}
+
+                      </div>
+
+                    </article>
+                  )
+                )}
+
+              </div>
+
+            </section>
+          )}
+
+          {destino.filme?.titulo && (
+            <section className="destination-references-section">
+
+              <div className="destination-section-heading">
+
+                <p className="destination-content-label">
+                  Referência pessoal
+                </p>
+
+                <h2>
+                  O que representa este lugar.
+                </h2>
+
+              </div>
+
+              <article className="destination-reference-card">
+
+                <div className="destination-reference-film">
+
+                  <div className="film-placeholder">
+
+                    <span>
+                      FILME
+                    </span>
+
+                  </div>
+
+                  <div className="destination-reference-content">
+
+                    <p className="destination-reference-type">
+                      Referência cinematográfica
+                    </p>
+
+                    <h3>
+                      {destino.filme.titulo}
+                    </h3>
+
+                    {destino.filme.ano && (
+                      <span className="destination-film-year">
+                        {destino.filme.ano}
+                      </span>
+                    )}
+
+                    {destino.filme.relacaoComDestino && (
+                      <p className="destination-reference-reason">
+                        {destino.filme.relacaoComDestino}
+                      </p>
+                    )}
+
+                  </div>
+
+                </div>
+
+              </article>
+
+            </section>
+          )}
+
+        </section>
 
       </main>
     )
   }
 
   return (
-    <main className="page">
+    <main className="destination-detail-page">
 
-      <div className="page-inner">
+      <section className="destination-detail-container">
 
         <Link
           to="/destinos"
-          className="back-link"
+          className="destination-back-link"
         >
-          ← Voltar para destinos
+          <span>←</span>
+          Voltar para o mapa
         </Link>
 
-        {/* HERO DO PAÍS */}
+        <header className="destination-detail-header">
 
-        <section className="country-hero">
-
-          <p className="eyebrow">
+          <p className="destination-eyebrow">
             {pais.continente}
           </p>
 
-          <h1 className="country-hero-title">
+          <h1>
             {pais.nome}
           </h1>
 
-          <p className="country-hero-description">
-            Lugares que quero conhecer e experiências que
-            quero viver em {pais.nome}.
+          <p className="destination-description">
+            Lugares que quero conhecer e experiências
+            que quero viver em {pais.nome}.
           </p>
 
-        </section>
+        </header>
 
-        {/* LUGARES */}
+        <section className="destination-places-section">
 
-        <section className="mt-28">
+          <div className="destination-section-heading">
 
-          <div className="section-heading">
+            <p className="destination-content-label">
+              Lugares
+            </p>
 
-            <div>
-              <p className="eyebrow">
-                Lugares
-              </p>
-
-              <h2 className="section-title">
-                Onde quero ir.
-              </h2>
-            </div>
+            <h2>
+              Onde quero ir.
+            </h2>
 
           </div>
 
-          <div className="places-grid">
+          <div className="destination-places-grid">
 
-            {pais.lugares.map((lugar) => (
+            {pais.lugares.map(
+              (lugar) => (
+                <article
+                  key={lugar.id}
+                  className="destination-place-card"
+                >
 
-              <article
-                key={lugar.id}
-                className="place-card"
-              >
+                  <div className="destination-place-image">
 
-                <div className="place-image-wrap">
+                    {lugar.imagem ? (
+                      <img
+                        src={lugar.imagem}
+                        alt={lugar.nome}
+                      />
+                    ) : (
+                      <div className="destination-no-image">
+                        Sem imagem
+                      </div>
+                    )}
 
-                  {lugar.imagem ? (
-                    <img
-                      src={lugar.imagem}
-                      alt={lugar.nome}
-                      className="place-image"
-                    />
-                  ) : (
-                    <div className="h-full bg-[#263a35]" />
-                  )}
+                    <div className="destination-place-image-overlay" />
 
-                  <div className="place-image-overlay" />
+                    <div className="destination-place-image-info">
 
-                  <div className="place-image-info">
+                      <p>
+                        {pais.nome}
+                      </p>
 
-                    <p className="place-country">
-                      {pais.nome}
-                    </p>
+                      <h3>
+                        {lugar.nome}
+                      </h3>
 
-                    <h3 className="place-name">
-                      {lugar.nome}
-                    </h3>
+                    </div>
 
                   </div>
 
-                </div>
+                  <div className="destination-place-content">
 
-                {/* EXPERIÊNCIAS */}
+                    <p className="destination-content-label">
+                      Quero viver isso
+                    </p>
 
-                <div className="experience-section">
+                    <div className="destination-experiences">
 
-                  <p className="experience-label">
-                    Quero viver isso
-                  </p>
+                      {lugar.experiencias?.map(
+                        (
+                          experiencia,
+                          index
+                        ) => {
 
-                  {lugar.experiencias?.map(
-                    (experiencia, index) => {
+                          const experienciaTexto =
+                            typeof experiencia === "string"
+                              ? experiencia
+                              : experiencia.texto
 
-                      const texto =
-                        typeof experiencia === "string"
-                          ? experiencia
-                          : experiencia.texto
+                          const experienciaTitulo =
+                            typeof experiencia === "string"
+                              ? null
+                              : experiencia.titulo
 
-                      const titulo =
-                        typeof experiencia === "string"
-                          ? null
-                          : experiencia.titulo
+                          const experienciaImagem =
+                            typeof experiencia === "string"
+                              ? null
+                              : experiencia.imagem
 
-                      const imagem =
-                        typeof experiencia === "string"
-                          ? null
-                          : experiencia.imagem
+                          return (
+                            <div
+                              key={index}
+                              className="destination-experience"
+                            >
 
-                      return (
-                        <div
-                          key={index}
-                          className="experience-item"
-                        >
+                              {experienciaImagem && (
+                                <img
+                                  src={experienciaImagem}
+                                  alt={
+                                    experienciaTitulo ||
+                                    experienciaTexto
+                                  }
+                                />
+                              )}
 
-                          {imagem && (
-                            <img
-                              src={imagem}
-                              alt={titulo || texto}
-                              className="experience-image"
-                            />
-                          )}
+                              {experienciaTitulo && (
+                                <h4>
+                                  {experienciaTitulo}
+                                </h4>
+                              )}
 
-                          {titulo && (
-                            <h4 className="experience-title">
-                              {titulo}
-                            </h4>
-                          )}
+                              <p>
+                                {experienciaTexto}
+                              </p>
 
-                          <p className="experience-text">
-                            {texto}
-                          </p>
+                            </div>
+                          )
+                        }
+                      )}
 
-                        </div>
-                      )
-                    }
-                  )}
+                    </div>
 
-                </div>
+                  </div>
 
-              </article>
-
-            ))}
+                </article>
+              )
+            )}
 
           </div>
 
         </section>
 
-        {/* REFERÊNCIAS */}
-
         {pais.referencias?.length > 0 && (
+          <section className="destination-references-section">
 
-          <section className="reference-section">
+            <div className="destination-section-heading">
 
-            <div className="section-heading">
+              <p className="destination-content-label">
+                Referência
+              </p>
 
-              <div>
-
-                <p className="eyebrow">
-                  Cinema · Memória · Atmosfera
-                </p>
-
-                <h2 className="section-title">
-                  Referências.
-                </h2>
-
-              </div>
+              <h2>
+                O que representa este lugar.
+              </h2>
 
             </div>
 
-            <div className="space-y-8">
+            <div className="destination-references">
 
               {pais.referencias.map(
-                (referencia, index) => {
+                (
+                  referencia,
+                  index
+                ) => {
 
-                  const imagens =
+                  const imagensReferencia =
                     referencia.imagens?.length > 0
                       ? referencia.imagens
                       : referencia.imagem
                         ? [referencia.imagem]
                         : []
 
-                  const multiple =
-                    imagens.length > 1
-
                   return (
                     <article
                       key={index}
-                      className="reference-card"
+                      className="destination-reference-card"
                     >
 
-                      {imagens.length > 0 && (
-
+                      {imagensReferencia.length > 0 && (
                         <div
                           className={
-                            multiple
-                              ? "reference-gallery multiple"
-                              : "reference-gallery single"
+                            imagensReferencia.length === 1
+                              ? "destination-reference-images single"
+                              : "destination-reference-images"
                           }
                         >
 
-                          {imagens.map(
-                            (imagem, imagemIndex) => (
-
+                          {imagensReferencia.map(
+                            (
+                              imagem,
+                              imagemIndex
+                            ) => (
                               <img
                                 key={imagemIndex}
                                 src={imagem}
                                 alt={`${referencia.titulo} - imagem ${imagemIndex + 1}`}
-                                className="reference-image"
                               />
-
                             )
                           )}
 
                         </div>
-
                       )}
 
-                      <div className="reference-content">
+                      <div className="destination-reference-content">
 
-                        <p className="reference-type">
+                        <p className="destination-reference-type">
                           {referencia.tipo}
                         </p>
 
-                        <h3 className="reference-title">
+                        <h3>
                           {referencia.titulo}
                         </h3>
 
                         {referencia.sinopse && (
-                          <p className="reference-description">
+                          <p className="destination-reference-synopsis">
                             {referencia.sinopse}
                           </p>
                         )}
 
                         {referencia.motivo && (
-                          <p className="reference-reason">
+                          <p className="destination-reference-reason">
                             {referencia.motivo}
                           </p>
                         )}
@@ -289,10 +512,9 @@ function DestinoDetalhes() {
             </div>
 
           </section>
-
         )}
 
-      </div>
+      </section>
 
     </main>
   )

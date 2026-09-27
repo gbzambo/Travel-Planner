@@ -796,85 +796,62 @@ a {
    ========================================================= */
 
 .country-marker-wrapper {
-  width: 58px;
-  height: 58px;
-
+  width: 20px;
+  height: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
-
   padding: 0;
-
   border: 0;
-
   background: transparent;
-
   cursor: pointer;
-
   transition:
     transform 180ms ease,
     filter 180ms ease;
 }
 
 .country-marker-wrapper:hover {
-  transform: scale(1.13);
+  transform: scale(1.25);
   filter: brightness(1.04);
 }
 
 .country-marker {
   position: relative;
-
-  width: 48px;
-  height: 48px;
-
+  width: 18px;
+  height: 18px;
   display: flex;
   align-items: center;
   justify-content: center;
-
-  padding: 6px;
-
+  padding: 2px;
   border: 1px solid rgba(255, 255, 255, 0.9);
-
   border-radius: 50%;
-
   background: rgba(245, 250, 250, 0.92);
-
   box-shadow:
-    0 8px 25px rgba(20, 52, 69, 0.2),
-    0 0 0 5px rgba(245, 250, 250, 0.25);
-
-  backdrop-filter: blur(8px);
+    0 3px 8px rgba(20, 52, 69, 0.15);
+  backdrop-filter: blur(5px);
 }
 
 .country-marker-flag {
-  width: 31px;
-  height: 21px;
-
+  width: 13px;
+  height: 9px;
   display: block;
-
   object-fit: cover;
-
-  border-radius: 2px;
-
+  border-radius: 1px;
   box-shadow:
-    0 2px 7px rgba(0, 0, 0, 0.18);
+    0 1px 3px rgba(0, 0, 0, 0.14);
 }
 
 .country-marker-code {
-  font-size: 10px;
+  font-size: 5px;
   font-weight: 700;
-  letter-spacing: 0.05em;
-
+  letter-spacing: 0.02em;
   color: var(--blue-dark);
 }
 
 .country-marker-ring {
   position: absolute;
-
-  inset: -6px;
-
-  border: 1px solid rgba(23, 61, 82, 0.2);
-
+  inset: -2px;
+  border: 1px solid rgba(23, 61, 82, 0.1);
   border-radius: 50%;
 }
 
