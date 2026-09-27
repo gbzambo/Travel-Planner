@@ -484,7 +484,46 @@ const paises = [
   },
     ],
   },
+  {
+  id: "BR",
+  nome: "Brasil",
+  continente: "América do Sul",
 
+  lugares: [
+    {
+      id: "rio-de-janeiro",
+      nome: "Rio de Janeiro",
+      tipo: "Cidade",
+
+      imagem: "/rj.jpg",
+
+      experiencias: [
+        {
+          titulo: "Viver o Rio entre o mar e as montanhas",
+          descricao:
+            "Conhecer o Cristo Redentor, o Pão de Açúcar e as praias, aproveitando a combinação de natureza, cidade e paisagem que faz parte da identidade do Rio."
+        },
+        {
+          titulo: "Passar um dia explorando o Rio",
+          descricao:
+            "Caminhar por diferentes partes da cidade, conhecer bairros, restaurantes e lugares históricos, sem pressa, absorvendo a atmosfera carioca."
+        }
+      ]
+    }
+  ],
+
+  referencias: [
+    {
+      titulo: "Cidade de Deus",
+      tipo: "Filme · Referência pessoal",
+      imagens: ["/cidadededeus.jpg"],
+      sinopse:
+        "Filme brasileiro de 2002 dirigido por Fernando Meirelles e Kátia Lund, ambientado na Cidade de Deus, no Rio de Janeiro.",
+      motivo:
+        "Uma das referências cinematográficas mais marcantes ligadas ao Rio de Janeiro."
+    }
+  ]
+},
   {
     id: 7,
     nome: "Austrália",
@@ -1328,6 +1367,359 @@ const paises = [
           "Filme de espionagem com cenas marcantes em Dubai e Abu Dhabi.",
         motivo:
           "É uma referência direta à imagem que tenho dos Emirados, principalmente pela arquitetura, escala e paisagens urbanas.",
+      },
+    ],
+  },
+    {
+    id: 24,
+    nome: "Brasil",
+    codigo: "BR",
+    continente: "América do Sul",
+
+    lugares: [
+      {
+        id: 2401,
+        nome: "Rio de Janeiro",
+        imagem: "/rj.jpg",
+
+        experiencias: [
+          {
+            titulo: "Caminhar pelo Rio durante o dia",
+            texto:
+              "Quero passar o dia caminhando pelo Rio de Janeiro, conhecendo seus bairros, paisagens e a atmosfera da cidade.",
+            imagem: "/rj.jpg",
+          },
+          {
+            titulo: "Conhecer as praias e a orla",
+            texto:
+              "Quero passar um dia conhecendo as praias e caminhando pela orla do Rio de Janeiro.",
+            imagem: "/rj.jpg",
+          },
+        ],
+      },
+    ],
+
+    referencias: [
+      {
+        titulo: "Cidade de Deus",
+        tipo: "Filme · Referência cultural",
+        imagem: "/cidadededeus.jpg",
+        sinopse:
+          "Filme brasileiro que retrata a vida na Cidade de Deus, no Rio de Janeiro.",
+        motivo:
+          "É uma das referências cinematográficas mais fortes que associo ao Rio de Janeiro e à identidade brasileira.",
+      },
+    ],
+  },
+
+  {
+    id: 25,
+    nome: "Dinamarca",
+    codigo: "DK",
+    continente: "Europa",
+
+    lugares: [
+      {
+        id: 2501,
+        nome: "Copenhagen",
+        imagem: "/copenhagen.jpeg",
+
+        experiencias: [
+          {
+            titulo: "Caminhar por Copenhagen",
+            texto:
+              "Quero caminhar pela cidade conhecendo sua arquitetura, canais e bairros.",
+            imagem: "/copenhagen.jpeg",
+          },
+          {
+            titulo: "Bicicleta e cafés",
+            texto:
+              "Quero andar de bicicleta pela cidade, parar em cafés e conhecer o ritmo cotidiano de Copenhagen.",
+            imagem: "/copenhagen.jpeg",
+          },
+          {
+            titulo: "Caminhar por Nyhavn",
+            texto:
+              "Quero conhecer Nyhavn e caminhar pela região durante o fim da tarde e à noite.",
+            imagem: "/copenhagen.jpeg",
+          },
+        ],
+      },
+    ],
+
+    referencias: [
+      {
+        titulo: "A Caça",
+        tipo: "Filme · Atmosfera",
+        imagem: "/thehunt.png",
+        sinopse:
+          "Drama dinamarquês dirigido por Thomas Vinterberg.",
+        motivo:
+          "É uma referência cinematográfica que reforça a atmosfera nórdica que associo à Dinamarca.",
+      },
+    ],
+  },
+
+  {
+    id: 26,
+    nome: "Suécia",
+    codigo: "SE",
+    continente: "Europa",
+
+    lugares: [
+      {
+        id: 2601,
+        nome: "Stockholm",
+        imagem: "/estocolmo.jpg",
+
+        experiencias: [
+          {
+            titulo: "Caminhar por Stockholm",
+            texto:
+              "Quero caminhar pela cidade conhecendo suas ruas, ilhas e arquitetura.",
+            imagem: "/estocolmo.jpg",
+          },
+          {
+            titulo: "Conhecer Gamla Stan",
+            texto:
+              "Quero conhecer Gamla Stan e caminhar pelo centro histórico de Stockholm.",
+            imagem: "/estocolmo.jpg",
+          },
+          {
+            titulo: "Viver a atmosfera nórdica",
+            texto:
+              "Quero conhecer Stockholm durante o frio e sentir aquela atmosfera nórdica mais silenciosa e contemplativa.",
+            imagem: "/estocolmo.jpg",
+          },
+        ],
+      },
+    ],
+
+    referencias: [
+      {
+        titulo: "O Sétimo Selo",
+        tipo: "Filme · Atmosfera",
+        imagem: "/setimoselo.jpg",
+        sinopse:
+          "Clássico de Ingmar Bergman ambientado na Suécia medieval.",
+        motivo:
+          "É uma referência cinematográfica muito ligada à atmosfera, paisagens e identidade cultural sueca.",
+      },
+    ],
+  },
+
+  {
+    id: 27,
+    nome: "Argentina",
+    codigo: "AR",
+    continente: "América do Sul",
+
+    lugares: [
+      {
+        id: 2701,
+        nome: "Buenos Aires",
+        imagem: "/buenosaires.jpeg",
+
+        experiencias: [
+          {
+            titulo: "Caminhar por Buenos Aires",
+            texto:
+              "Quero caminhar pela cidade conhecendo seus bairros, arquitetura e cafés.",
+            imagem: "/buenosaires.jpeg",
+          },
+          {
+            titulo: "Conhecer Palermo e San Telmo",
+            texto:
+              "Quero passar pelos bairros de Palermo e San Telmo, conhecendo restaurantes, cafés e ruas da cidade.",
+            imagem: "/buenosaires.jpeg",
+          },
+          {
+            titulo: "Conhecer a vida noturna",
+            texto:
+              "Quero conhecer Buenos Aires durante a noite e experimentar sua vida noturna.",
+            imagem: "/buenosaires.jpeg",
+          },
+        ],
+      },
+    ],
+
+    referencias: [
+      {
+        titulo: "Cuando Acecha la Maldad",
+        tipo: "Filme · Atmosfera",
+        imagem: "/whenevillurks.jpeg",
+        sinopse:
+          "Filme argentino de terror dirigido por Demián Rugna.",
+        motivo:
+          "É uma referência argentina que conheci pelo cinema e que ficou associada ao país no meu imaginário.",
+      },
+    ],
+  },
+
+  {
+    id: 28,
+    nome: "Rússia",
+    codigo: "RU",
+    continente: "Europa / Ásia",
+
+    lugares: [
+      {
+        id: 2801,
+        nome: "Moscow",
+        imagem: "/moscou.webp",
+
+        experiencias: [
+          {
+            titulo: "Conhecer a Praça Vermelha e o Kremlin",
+            texto:
+              "Quero conhecer a Praça Vermelha, o Kremlin e a arquitetura histórica de Moscou.",
+            imagem: "/moscou.webp",
+          },
+          {
+            titulo: "Conhecer Moscou durante o inverno",
+            texto:
+              "Quero conhecer Moscou durante o frio, caminhar pela cidade e ver a arquitetura coberta de neve.",
+            imagem: "/moscou.webp",
+          },
+          {
+            titulo: "Conhecer o metrô de Moscou",
+            texto:
+              "Quero conhecer as estações históricas e monumentais do metrô de Moscou.",
+            imagem: "/moscou.webp",
+          },
+        ],
+      },
+    ],
+
+    referencias: [
+      {
+        titulo: "Mirror",
+        tipo: "Filme · Atmosfera",
+        imagem: "/mirror.jpg",
+        sinopse:
+          "Filme de Andrei Tarkovsky marcado por memória, paisagens e uma atmosfera profundamente contemplativa.",
+        motivo:
+          "A estética de Tarkovsky é uma referência importante para a maneira como imagino algumas paisagens e atmosferas russas.",
+      },
+    ],
+  },
+
+  {
+    id: 29,
+    nome: "Singapura",
+    codigo: "SG",
+    continente: "Ásia",
+
+    lugares: [
+      {
+        id: 2901,
+        nome: "Singapore",
+        imagem: "/singapura.webp",
+
+        experiencias: [
+          {
+            titulo: "Conhecer Marina Bay à noite",
+            texto:
+              "Quero caminhar pela região de Marina Bay durante a noite e observar o skyline iluminado.",
+            imagem: "/singapura.webp",
+          },
+          {
+            titulo: "Conhecer Gardens by the Bay",
+            texto:
+              "Quero conhecer o Gardens by the Bay e sua arquitetura futurista.",
+            imagem: "/singapura.webp",
+          },
+          {
+            titulo: "Conhecer os bairros tradicionais",
+            texto:
+              "Quero conhecer a diferença entre os bairros tradicionais e a parte extremamente moderna de Singapura.",
+            imagem: "/singapura.webp",
+          },
+        ],
+      },
+    ],
+
+    referencias: [
+      {
+        titulo: "Crazy Rich Asians",
+        tipo: "Filme · Atmosfera",
+        imagem: "/crazyrichasians.webp",
+        sinopse:
+          "Comédia romântica ambientada em Singapura e marcada por sua arquitetura, luxo e vida urbana.",
+        motivo:
+          "É uma das referências que mais associo à imagem moderna e sofisticada de Singapura.",
+      },
+    ],
+  },
+
+  {
+    id: 30,
+    nome: "África do Sul",
+    codigo: "ZA",
+    continente: "África",
+
+    lugares: [
+      {
+        id: 3001,
+        nome: "Cape Town",
+        imagem: "/joanesburgo.jpeg",
+
+        experiencias: [
+          {
+            titulo: "Conhecer Cape Town",
+            texto:
+              "Quero conhecer Cape Town, sua costa, bairros e paisagens naturais.",
+            imagem: "/joanesburgo.jpeg",
+          },
+          {
+            titulo: "Conhecer a Table Mountain",
+            texto:
+              "Quero conhecer a Table Mountain e observar a cidade e o litoral do alto.",
+            imagem: "/joanesburgo.jpeg",
+          },
+        ],
+      },
+
+      {
+        id: 3002,
+        nome: "Johannesburg",
+        imagem: "/joanesburgo.jpeg",
+
+        experiencias: [
+          {
+            titulo: "Conhecer Johannesburg",
+            texto:
+              "Quero conhecer Johannesburg e entender melhor a história e a cultura da cidade.",
+            imagem: "/joanesburgo.jpeg",
+          },
+        ],
+      },
+
+      {
+        id: 3003,
+        nome: "Safari",
+        imagem: "/joanesburgo.jpeg",
+
+        experiencias: [
+          {
+            titulo: "Fazer um safari",
+            texto:
+              "Quero fazer um safari e ver animais como leões, elefantes, girafas e zebras em seu habitat natural.",
+            imagem: "/joanesburgo.jpeg",
+          },
+        ],
+      },
+    ],
+
+    referencias: [
+      {
+        titulo: "District 9",
+        tipo: "Filme · Localização / Atmosfera",
+        imagem: "/district9.jpg",
+        sinopse:
+          "Ficção científica ambientada em Johannesburg.",
+        motivo:
+          "É uma referência cinematográfica diretamente ligada à África do Sul e principalmente a Johannesburg.",
       },
     ],
   },
