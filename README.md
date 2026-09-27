@@ -611,8 +611,6 @@ npm run preview
 O projeto foi estruturado para funcionar como uma aplicação front-end estática e pode ser publicado em serviços como:
 
 * Vercel
-* Netlify
-* GitHub Pages
 
 A aplicação não depende de um servidor próprio nesta versão.
 
