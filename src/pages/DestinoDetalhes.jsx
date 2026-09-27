@@ -1,203 +1,301 @@
-import { useEffect, useState } from "react"
 import { Link, useParams } from "react-router-dom"
 
-import destinos from "../data/destinos"
-import { buscarDestinos } from "../services/destinos"
+import paises from "../data/paises"
 
 function DestinoDetalhes() {
   const { id } = useParams()
-  const [destino, setDestino] = useState(null)
 
-  useEffect(() => {
-    const destinosSalvos = buscarDestinos()
+  const pais = paises.find(
+    (pais) => pais.id === Number(id)
+  )
 
-    const todosOsDestinos = [
-      ...destinos,
-      ...destinosSalvos,
-    ]
-
-    const destinoEncontrado = todosOsDestinos.find(
-      (destino) => destino.id === Number(id)
-    )
-
-    setDestino(destinoEncontrado)
-  }, [id])
-
-  if (!destino) {
+  if (!pais) {
     return (
-      <main className="min-h-screen bg-[#e8f0ed] px-8 py-16">
-        <section className="mx-auto max-w-7xl">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
-            Destino não encontrado
+      <main className="page">
+
+        <div className="page-inner">
+
+          <p className="eyebrow">
+            Atlas
           </p>
 
-          <h1 className="mt-4 text-6xl font-medium tracking-[-0.04em] text-gray-900">
-            Esse destino não existe.
+          <h1 className="display-title display-title-lg mt-5">
+            Destino não encontrado.
           </h1>
 
           <Link
             to="/destinos"
-            className="mt-8 inline-flex items-center gap-2 border-b border-gray-900 pb-2 text-sm font-medium text-gray-900"
+            className="back-link mt-10"
           >
-            <span>←</span>
-            Voltar para destinos
+            ← Voltar para destinos
           </Link>
-        </section>
+
+        </div>
+
       </main>
     )
   }
 
   return (
-    <main className="min-h-screen bg-[#e8f0ed] px-8 py-16">
-      <section className="mx-auto max-w-7xl">
+    <main className="page">
+
+      <div className="page-inner">
+
         <Link
           to="/destinos"
-          className="mb-12 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-gray-900"
+          className="back-link"
         >
-          <span>←</span>
-          Voltar para destinos
+          ← Voltar para destinos
         </Link>
 
-        {/* Cabeçalho */}
-        <div className="mb-16">
-          <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
-            {destino.continente} · {destino.pais}
+        {/* HERO DO PAÍS */}
+
+        <section className="country-hero">
+
+          <p className="eyebrow">
+            {pais.continente}
           </p>
 
-          <h1 className="mt-4 text-7xl font-medium leading-none tracking-[-0.04em] text-gray-900">
-            {destino.cidade}
+          <h1 className="country-hero-title">
+            {pais.nome}
           </h1>
 
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
-            {destino.informacoes.descricao}
+          <p className="country-hero-description">
+            Lugares que quero conhecer e experiências que
+            quero viver em {pais.nome}.
           </p>
-        </div>
 
-        {/* Imagem principal */}
-        <div className="h-[600px] overflow-hidden rounded-[2rem]">
-          <img
-            src={
-              destino.imagemOriginal ||
-              destino.imagens[0]
-            }
-            alt={destino.cidade}
-            className="h-full w-full object-cover"
-          />
-        </div>
-
-        {/* Informações do destino */}
-        <section className="mt-20 grid gap-12 md:grid-cols-3">
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-gray-400">
-              Localização
-            </p>
-
-            <p className="mt-3 text-xl text-gray-900">
-              {destino.informacoes.localizacao}
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-gray-400">
-              País
-            </p>
-
-            <p className="mt-3 text-xl text-gray-900">
-              {destino.pais}
-            </p>
-          </div>
-
-          <div>
-            <p className="text-xs uppercase tracking-[0.2em] text-gray-400">
-              Clima
-            </p>
-
-            <p className="mt-3 text-xl text-gray-900">
-              {destino.informacoes.clima}
-            </p>
-          </div>
         </section>
 
-        {/* Filme */}
-        <section className="mt-32">
-          <div className="mb-10">
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
-              Um filme que representa o destino
-            </p>
+        {/* LUGARES */}
 
-            <h2 className="mt-3 text-5xl font-medium tracking-[-0.03em] text-gray-900">
-              {destino.filme.titulo}
-            </h2>
-          </div>
+        <section className="mt-28">
 
-          <div className="grid gap-10 md:grid-cols-2">
-            <div className="overflow-hidden rounded-[2rem]">
-              <img
-                src={destino.filme.imagem}
-                alt={destino.filme.titulo}
-                className="h-[500px] w-full object-cover"
-              />
+          <div className="section-heading">
+
+            <div>
+              <p className="eyebrow">
+                Lugares
+              </p>
+
+              <h2 className="section-title">
+                Onde quero ir.
+              </h2>
             </div>
 
-            <div className="flex flex-col justify-center">
-              <p className="text-sm uppercase tracking-[0.2em] text-gray-400">
-                {destino.filme.ano}
-              </p>
-
-              <p className="mt-6 text-lg leading-relaxed text-gray-600">
-                {destino.filme.descricao}
-              </p>
-
-              <p className="mt-8 text-lg leading-relaxed text-gray-900">
-                {destino.filme.relacaoComDestino}
-              </p>
-            </div>
-          </div>
-        </section>
-
-        {/* Experiências */}
-        <section className="mt-32">
-          <div className="mb-10">
-            <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
-              Experiências
-            </p>
-
-            <h2 className="mt-3 text-5xl font-medium tracking-[-0.03em] text-gray-900">
-              Quero viver isso.
-            </h2>
           </div>
 
-          <div className="space-y-16">
-            {destino.experiencias.map((experiencia) => (
+          <div className="places-grid">
+
+            {pais.lugares.map((lugar) => (
+
               <article
-                key={experiencia.id}
-                className="grid gap-10 md:grid-cols-2 md:items-center"
+                key={lugar.id}
+                className="place-card"
               >
-                <div className="overflow-hidden rounded-[2rem]">
-                  <img
-                    src={experiencia.imagem}
-                    alt={experiencia.titulo}
-                    className="h-[450px] w-full object-cover"
-                  />
+
+                <div className="place-image-wrap">
+
+                  {lugar.imagem ? (
+                    <img
+                      src={lugar.imagem}
+                      alt={lugar.nome}
+                      className="place-image"
+                    />
+                  ) : (
+                    <div className="h-full bg-[#263a35]" />
+                  )}
+
+                  <div className="place-image-overlay" />
+
+                  <div className="place-image-info">
+
+                    <p className="place-country">
+                      {pais.nome}
+                    </p>
+
+                    <h3 className="place-name">
+                      {lugar.nome}
+                    </h3>
+
+                  </div>
+
                 </div>
 
-                <div>
-                  <h3 className="text-4xl font-medium tracking-[-0.03em] text-gray-900">
-                    {experiencia.titulo}
-                  </h3>
+                {/* EXPERIÊNCIAS */}
 
-                  <p className="mt-6 max-w-xl text-lg leading-relaxed text-gray-600">
-                    {experiencia.texto}
+                <div className="experience-section">
+
+                  <p className="experience-label">
+                    Quero viver isso
                   </p>
+
+                  {lugar.experiencias?.map(
+                    (experiencia, index) => {
+
+                      const texto =
+                        typeof experiencia === "string"
+                          ? experiencia
+                          : experiencia.texto
+
+                      const titulo =
+                        typeof experiencia === "string"
+                          ? null
+                          : experiencia.titulo
+
+                      const imagem =
+                        typeof experiencia === "string"
+                          ? null
+                          : experiencia.imagem
+
+                      return (
+                        <div
+                          key={index}
+                          className="experience-item"
+                        >
+
+                          {imagem && (
+                            <img
+                              src={imagem}
+                              alt={titulo || texto}
+                              className="experience-image"
+                            />
+                          )}
+
+                          {titulo && (
+                            <h4 className="experience-title">
+                              {titulo}
+                            </h4>
+                          )}
+
+                          <p className="experience-text">
+                            {texto}
+                          </p>
+
+                        </div>
+                      )
+                    }
+                  )}
+
                 </div>
+
               </article>
+
             ))}
+
           </div>
+
         </section>
-      </section>
+
+        {/* REFERÊNCIAS */}
+
+        {pais.referencias?.length > 0 && (
+
+          <section className="reference-section">
+
+            <div className="section-heading">
+
+              <div>
+
+                <p className="eyebrow">
+                  Cinema · Memória · Atmosfera
+                </p>
+
+                <h2 className="section-title">
+                  Referências.
+                </h2>
+
+              </div>
+
+            </div>
+
+            <div className="space-y-8">
+
+              {pais.referencias.map(
+                (referencia, index) => {
+
+                  const imagens =
+                    referencia.imagens?.length > 0
+                      ? referencia.imagens
+                      : referencia.imagem
+                        ? [referencia.imagem]
+                        : []
+
+                  const multiple =
+                    imagens.length > 1
+
+                  return (
+                    <article
+                      key={index}
+                      className="reference-card"
+                    >
+
+                      {imagens.length > 0 && (
+
+                        <div
+                          className={
+                            multiple
+                              ? "reference-gallery multiple"
+                              : "reference-gallery single"
+                          }
+                        >
+
+                          {imagens.map(
+                            (imagem, imagemIndex) => (
+
+                              <img
+                                key={imagemIndex}
+                                src={imagem}
+                                alt={`${referencia.titulo} - imagem ${imagemIndex + 1}`}
+                                className="reference-image"
+                              />
+
+                            )
+                          )}
+
+                        </div>
+
+                      )}
+
+                      <div className="reference-content">
+
+                        <p className="reference-type">
+                          {referencia.tipo}
+                        </p>
+
+                        <h3 className="reference-title">
+                          {referencia.titulo}
+                        </h3>
+
+                        {referencia.sinopse && (
+                          <p className="reference-description">
+                            {referencia.sinopse}
+                          </p>
+                        )}
+
+                        {referencia.motivo && (
+                          <p className="reference-reason">
+                            {referencia.motivo}
+                          </p>
+                        )}
+
+                      </div>
+
+                    </article>
+                  )
+                }
+              )}
+
+            </div>
+
+          </section>
+
+        )}
+
+      </div>
+
     </main>
   )
 }
 
 export default DestinoDetalhes
-

@@ -1,78 +1,115 @@
-import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 
-import destinos from "../data/destinos"
-import { buscarDestinos } from "../services/destinos"
+import paises from "../data/paises"
 
 function Destinos() {
-  const [todosOsDestinos, setTodosOsDestinos] = useState(destinos)
-
-  useEffect(() => {
-    const destinosSalvos = buscarDestinos()
-
-    setTodosOsDestinos([
-      ...destinos,
-      ...destinosSalvos,
-    ])
-  }, [])
-
   return (
-    <main className="min-h-screen bg-[#e8f0ed] px-8 py-16">
-      <section className="mx-auto max-w-7xl">
+    <main className="page">
 
-        <div className="mb-16">
-          <p className="mb-4 text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
-            Destinos
+      <div className="page-inner">
+
+        <section className="mb-24">
+
+          <p className="eyebrow">
+            Atlas · Destinos
           </p>
 
-          <h1 className="max-w-3xl text-6xl font-medium leading-[0.95] tracking-[-0.04em] text-gray-900">
-            Lugares que fazem parte da minha viagem.
+          <h1 className="display-title display-title-lg mt-5">
+            O mundo que
+            <br />
+            quero conhecer.
           </h1>
-        </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          <p className="body-text mt-8 max-w-2xl text-base">
+            Países, cidades e lugares que quero conhecer,
+            cada um associado a experiências e referências
+            pessoais diferentes.
+          </p>
 
-          {todosOsDestinos.map((destino) => (
-            <Link
-              key={destino.id}
-              to={`/destinos/${destino.id}`}
-              className="group overflow-hidden rounded-[2rem] bg-white"
-            >
-              <img
-                src={destino.imagens[0]}
-                alt={destino.cidade}
-                className="h-80 w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              />
+        </section>
 
-              <div className="p-6">
+        <section>
 
-                <p className="text-xs uppercase tracking-[0.2em] text-gray-400">
-                  {destino.continente}
-                </p>
+          <div className="section-heading">
 
-                <h2 className="mt-2 text-3xl font-medium text-gray-900">
-                  {destino.cidade}
-                </h2>
+            <div>
+              <p className="eyebrow">
+                Continentes
+              </p>
 
-                <p className="mt-1 text-sm text-gray-500">
-                  {destino.pais}
-                </p>
+              <h2 className="section-title">
+                Meus destinos.
+              </h2>
+            </div>
 
-                <p className="mt-5 text-sm leading-relaxed text-gray-600">
-                  {destino.informacoes.descricao}
-                </p>
+            <p className="hidden text-xs uppercase tracking-[0.18em] text-white/40 md:block">
+              {paises.length} países
+            </p>
 
-                <p className="mt-6 text-sm font-medium text-gray-900">
-                  Explorar destino →
-                </p>
+          </div>
 
-              </div>
-            </Link>
-          ))}
+          <div className="destinations-grid">
 
-        </div>
+            {paises.map((pais, index) => {
 
-      </section>
+              const lugarPrincipal = pais.lugares?.[0]
+
+              return (
+                <Link
+                  key={pais.id}
+                  to={`/destinos/${pais.id}`}
+                  className="country-card"
+                >
+
+                  {lugarPrincipal?.imagem && (
+                    <img
+                      src={lugarPrincipal.imagem}
+                      alt={pais.nome}
+                      className="country-card-image"
+                    />
+                  )}
+
+                  <div className="country-card-content">
+
+                    <p className="country-number">
+                      {String(index + 1).padStart(2, "0")}
+                    </p>
+
+                    <h2 className="country-name">
+                      {pais.nome}
+                    </h2>
+
+                    <div className="country-meta">
+
+                      <span>
+                        {pais.continente}
+                      </span>
+
+                      <span>
+                        {pais.lugares.length}{" "}
+                        {pais.lugares.length === 1
+                          ? "lugar"
+                          : "lugares"}
+                      </span>
+
+                    </div>
+
+                  </div>
+
+                  <span className="country-arrow">
+                    →
+                  </span>
+
+                </Link>
+              )
+            })}
+
+          </div>
+
+        </section>
+
+      </div>
+
     </main>
   )
 }
