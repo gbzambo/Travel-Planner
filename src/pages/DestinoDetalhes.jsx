@@ -6,7 +6,6 @@ import { buscarDestinos } from "../services/destinos"
 
 function DestinoDetalhes() {
   const { id } = useParams()
-
   const [destino, setDestino] = useState(null)
 
   useEffect(() => {
@@ -28,7 +27,6 @@ function DestinoDetalhes() {
     return (
       <main className="min-h-screen bg-[#e8f0ed] px-8 py-16">
         <section className="mx-auto max-w-7xl">
-
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
             Destino não encontrado
           </p>
@@ -44,7 +42,6 @@ function DestinoDetalhes() {
             <span>←</span>
             Voltar para destinos
           </Link>
-
         </section>
       </main>
     )
@@ -53,8 +50,6 @@ function DestinoDetalhes() {
   return (
     <main className="min-h-screen bg-[#e8f0ed] px-8 py-16">
       <section className="mx-auto max-w-7xl">
-
-        {/* Voltar para destinos */}
         <Link
           to="/destinos"
           className="mb-12 inline-flex items-center gap-2 text-sm text-gray-500 transition-colors hover:text-gray-900"
@@ -63,7 +58,7 @@ function DestinoDetalhes() {
           Voltar para destinos
         </Link>
 
-        {/* Cabeçalho do destino */}
+        {/* Cabeçalho */}
         <div className="mb-16">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
             {destino.continente} · {destino.pais}
@@ -81,15 +76,17 @@ function DestinoDetalhes() {
         {/* Imagem principal */}
         <div className="h-[600px] overflow-hidden rounded-[2rem]">
           <img
-            src={destino.imagens[0]}
+            src={
+              destino.imagemOriginal ||
+              destino.imagens[0]
+            }
             alt={destino.cidade}
             className="h-full w-full object-cover"
           />
         </div>
 
-        {/* Informações do lugar */}
+        {/* Informações do destino */}
         <section className="mt-20 grid gap-12 md:grid-cols-3">
-
           <div>
             <p className="text-xs uppercase tracking-[0.2em] text-gray-400">
               Localização
@@ -119,12 +116,10 @@ function DestinoDetalhes() {
               {destino.informacoes.clima}
             </p>
           </div>
-
         </section>
 
         {/* Filme */}
         <section className="mt-32">
-
           <div className="mb-10">
             <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
               Um filme que representa o destino
@@ -136,7 +131,6 @@ function DestinoDetalhes() {
           </div>
 
           <div className="grid gap-10 md:grid-cols-2">
-
             <div className="overflow-hidden rounded-[2rem]">
               <img
                 src={destino.filme.imagem}
@@ -158,14 +152,11 @@ function DestinoDetalhes() {
                 {destino.filme.relacaoComDestino}
               </p>
             </div>
-
           </div>
-
         </section>
 
-        {/* Quero viver isso */}
+        {/* Experiências */}
         <section className="mt-32">
-
           <div className="mb-10">
             <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
               Experiências
@@ -177,13 +168,11 @@ function DestinoDetalhes() {
           </div>
 
           <div className="space-y-16">
-
             {destino.experiencias.map((experiencia) => (
               <article
                 key={experiencia.id}
                 className="grid gap-10 md:grid-cols-2 md:items-center"
               >
-
                 <div className="overflow-hidden rounded-[2rem]">
                   <img
                     src={experiencia.imagem}
@@ -201,17 +190,14 @@ function DestinoDetalhes() {
                     {experiencia.texto}
                   </p>
                 </div>
-
               </article>
             ))}
-
           </div>
-
         </section>
-
       </section>
     </main>
   )
 }
 
 export default DestinoDetalhes
+

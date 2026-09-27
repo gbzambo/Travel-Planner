@@ -3,28 +3,23 @@ import { useState } from "react"
 import { buscarCidade } from "../services/geocoding"
 import { buscarContinente } from "../services/countries"
 import { salvarDestino } from "../services/destinos"
+import { buscarImagem } from "../services/images"
 
 function AdicionarDestino() {
-  // Dados encontrados pela API
   const [cidadeDigitada, setCidadeDigitada] = useState("")
   const [pais, setPais] = useState("")
   const [continente, setContinente] = useState("")
   const [regiao, setRegiao] = useState("")
-
-  // Coordenadas usadas futuramente pelo mapa
   const [latitude, setLatitude] = useState("")
   const [longitude, setLongitude] = useState("")
-
-  // Dados preenchidos pelo usuário
+  const [imagemDestino, setImagemDestino] = useState("")
+  const [imagemDestinoOriginal, setImagemDestinoOriginal] = useState("")
   const [descricao, setDescricao] = useState("")
-
   const [experienciaTitulo, setExperienciaTitulo] = useState("")
   const [experienciaTexto, setExperienciaTexto] = useState("")
-
   const [filmeTitulo, setFilmeTitulo] = useState("")
   const [filmeAno, setFilmeAno] = useState("")
   const [filmeRelacao, setFilmeRelacao] = useState("")
-
   const [destinoEncontrado, setDestinoEncontrado] = useState(false)
 
   async function buscarDestino() {
@@ -50,10 +45,8 @@ function AdicionarDestino() {
     setPais(cidade.country)
     setContinente(continenteEncontrado)
     setRegiao(cidade.admin1)
-
     setLatitude(cidade.latitude)
     setLongitude(cidade.longitude)
-
     setDestinoEncontrado(true)
 
     console.log("Cidade:", cidade.name)
@@ -62,57 +55,72 @@ function AdicionarDestino() {
     console.log("Região:", cidade.admin1)
     console.log("Latitude:", cidade.latitude)
     console.log("Longitude:", cidade.longitude)
+
+    const imagem = await buscarImagem(
+      cidade.name,
+      cidade.country
+    )
+
+    const urlImagem =
+      imagem?.photos?.[0]?.src?.large2x
+
+    const urlImagemOriginal =
+      imagem?.photos?.[0]?.src?.original
+
+    setImagemDestino(urlImagem || "")
+    setImagemDestinoOriginal(
+      urlImagemOriginal || ""
+    )
+
+    console.log("Imagem encontrada:", imagem)
+    console.log("URL da imagem:", urlImagem)
+    console.log(
+      "URL original:",
+      urlImagemOriginal
+    )
   }
 
   function adicionarDestino() {
-  const novoDestino = {
-    id: Date.now(),
-
-    cidade: cidadeDigitada,
-    pais,
-    continente,
-
-    informacoes: {
-      descricao,
-      clima: "",
-      localizacao: regiao,
-    },
-
-    latitude,
-    longitude,
-
-    imagens: [],
-
-    filme: {
-      titulo: filmeTitulo,
-      ano: Number(filmeAno),
-      imagem: "",
-      descricao: "",
-      relacaoComDestino: filmeRelacao,
-    },
-
-    experiencias: [
-      {
-        id: 1,
-        titulo: experienciaTitulo,
-        texto: experienciaTexto,
-        imagem: "",
+    const novoDestino = {
+      id: Date.now(),
+      cidade: cidadeDigitada,
+      pais,
+      continente,
+      informacoes: {
+        descricao,
+        clima: "",
+        localizacao: regiao,
       },
-    ],
+      latitude,
+      longitude,
+      imagens: [imagemDestino],
+      imagemOriginal: imagemDestinoOriginal,
+      filme: {
+        titulo: filmeTitulo,
+        ano: Number(filmeAno),
+        imagem: "",
+        descricao: "",
+        relacaoComDestino: filmeRelacao,
+      },
+      experiencias: [
+        {
+          id: 1,
+          titulo: experienciaTitulo,
+          texto: experienciaTexto,
+          imagem: "",
+        },
+      ],
+      elementosVisuais: [],
+    }
 
-    elementosVisuais: [],
+    salvarDestino(novoDestino)
+
+    console.log("Destino salvo:", novoDestino)
   }
-
-  salvarDestino(novoDestino)
-
-  console.log("Destino salvo:", novoDestino)
-}
 
   return (
     <main className="min-h-screen bg-[#e8f0ed] px-8 py-16">
       <section className="mx-auto max-w-4xl">
-
-        {/* Cabeçalho */}
         <div className="mb-16">
           <p className="text-xs font-medium uppercase tracking-[0.3em] text-gray-500">
             Travel Planner
@@ -128,9 +136,7 @@ function AdicionarDestino() {
           </p>
         </div>
 
-        {/* Informações básicas */}
         <section className="mb-20">
-
           <div className="mb-8">
             <p className="text-xs uppercase tracking-[0.2em] text-gray-400">
               Informações básicas
@@ -142,8 +148,6 @@ function AdicionarDestino() {
           </div>
 
           <div className="space-y-8">
-
-            {/* Cidade */}
             <div>
               <label className="text-sm text-gray-500">
                 Cidade
@@ -161,10 +165,8 @@ function AdicionarDestino() {
               />
             </div>
 
-            {/* Dados encontrados */}
             {destinoEncontrado && (
               <>
-                {/* País */}
                 <div>
                   <label className="text-sm text-gray-500">
                     País
@@ -178,7 +180,6 @@ function AdicionarDestino() {
                   />
                 </div>
 
-                {/* Continente */}
                 <div>
                   <label className="text-sm text-gray-500">
                     Continente
@@ -192,7 +193,6 @@ function AdicionarDestino() {
                   />
                 </div>
 
-                {/* Região */}
                 <div>
                   <label className="text-sm text-gray-500">
                     Localização / Região
@@ -206,7 +206,6 @@ function AdicionarDestino() {
                   />
                 </div>
 
-                {/* Descrição */}
                 <div>
                   <label className="text-sm text-gray-500">
                     Descrição
@@ -224,10 +223,8 @@ function AdicionarDestino() {
                 </div>
               </>
             )}
-
           </div>
 
-          {/* Buscar destino */}
           <button
             type="button"
             onClick={buscarDestino}
@@ -235,12 +232,9 @@ function AdicionarDestino() {
           >
             Buscar destino →
           </button>
-
         </section>
 
-        {/* Quero viver isso */}
         <section className="mb-20">
-
           <div className="mb-8">
             <p className="text-xs uppercase tracking-[0.2em] text-gray-400">
               Experiência
@@ -252,8 +246,6 @@ function AdicionarDestino() {
           </div>
 
           <div className="space-y-8">
-
-            {/* Título */}
             <div>
               <label className="text-sm text-gray-500">
                 Título da experiência
@@ -270,7 +262,6 @@ function AdicionarDestino() {
               />
             </div>
 
-            {/* Descrição */}
             <div>
               <label className="text-sm text-gray-500">
                 Descrição da experiência
@@ -286,14 +277,10 @@ function AdicionarDestino() {
                 className="mt-2 w-full resize-none border-b border-gray-300 bg-transparent py-3 text-lg outline-none transition-colors focus:border-gray-900"
               />
             </div>
-
           </div>
-
         </section>
 
-        {/* Filme */}
         <section className="mb-20">
-
           <div className="mb-8">
             <p className="text-xs uppercase tracking-[0.2em] text-gray-400">
               Filme
@@ -305,8 +292,6 @@ function AdicionarDestino() {
           </div>
 
           <div className="space-y-8">
-
-            {/* Título */}
             <div>
               <label className="text-sm text-gray-500">
                 Título do filme
@@ -323,7 +308,6 @@ function AdicionarDestino() {
               />
             </div>
 
-            {/* Ano */}
             <div>
               <label className="text-sm text-gray-500">
                 Ano
@@ -340,7 +324,6 @@ function AdicionarDestino() {
               />
             </div>
 
-            {/* Relação com destino */}
             <div>
               <label className="text-sm text-gray-500">
                 Por que esse filme representa o destino?
@@ -356,20 +339,16 @@ function AdicionarDestino() {
                 className="mt-2 w-full resize-none border-b border-gray-300 bg-transparent py-3 text-lg outline-none transition-colors focus:border-gray-900"
               />
             </div>
-
           </div>
-
         </section>
 
-        {/* Botão final */}
         <button
-            type="button"
-            onClick={adicionarDestino}
-            className="border-b border-gray-900 pb-2 text-sm font-medium text-gray-900 transition-opacity hover:opacity-50"
+          type="button"
+          onClick={adicionarDestino}
+          className="border-b border-gray-900 pb-2 text-sm font-medium text-gray-900 transition-opacity hover:opacity-50"
         >
-            Adicionar destino →
+          Adicionar destino →
         </button>
-
       </section>
     </main>
   )
