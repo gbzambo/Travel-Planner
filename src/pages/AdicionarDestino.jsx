@@ -1,6 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 
+import { buscarFilme } from "../services/movies"
 import { buscarCidade } from "../services/geocoding"
 import { buscarContinente } from "../services/countries"
 import { salvarDestino } from "../services/destinos"
@@ -75,6 +76,9 @@ function AdicionarDestino() {
   const [filmeRelacao, setFilmeRelacao] =
     useState("")
 
+  const [filmeEncontrado, setFilmeEncontrado] =
+    useState(null)
+
   const [destinoEncontrado, setDestinoEncontrado] =
     useState(false)
 
@@ -137,6 +141,7 @@ function AdicionarDestino() {
         imagem?.photos?.[0]?.src?.original || ""
 
       setImagemDestino(urlImagem)
+
       setImagemDestinoOriginal(
         urlImagemOriginal
       )
@@ -178,6 +183,52 @@ function AdicionarDestino() {
     }
   }
 
+  async function buscarReferenciaFilme() {
+    if (!filmeTitulo.trim()) {
+      setErro("Digite o título de um filme.")
+      return
+    }
+
+    setErro("")
+
+    try {
+      const filme =
+        await buscarFilme(
+          filmeTitulo,
+          filmeAno
+        )
+
+      if (!filme) {
+        setFilmeEncontrado(null)
+
+        setErro(
+          "Não encontramos esse filme no TMDB."
+        )
+
+        return
+      }
+
+      setFilmeEncontrado(filme)
+
+      setFilmeTitulo(filme.titulo)
+
+      if (filme.ano) {
+        setFilmeAno(
+          String(filme.ano)
+        )
+      }
+
+    } catch (error) {
+      console.error(error)
+
+      setFilmeEncontrado(null)
+
+      setErro(
+        "Não foi possível buscar esse filme agora."
+      )
+    }
+  }
+
   function adicionarDestino() {
     if (!destinoEncontrado) {
       setErro(
@@ -215,12 +266,30 @@ function AdicionarDestino() {
         imagemDestinoOriginal,
 
       filme: {
-        titulo: filmeTitulo,
-        ano: filmeAno
-          ? Number(filmeAno)
-          : null,
-        imagem: "",
-        descricao: "",
+        id:
+          filmeEncontrado?.id ||
+          null,
+
+        titulo:
+          filmeEncontrado?.titulo ||
+          filmeTitulo,
+
+        ano:
+          filmeEncontrado?.ano ||
+          (
+            filmeAno
+              ? Number(filmeAno)
+              : null
+          ),
+
+        imagem:
+          filmeEncontrado?.imagem ||
+          "",
+
+        descricao:
+          filmeEncontrado?.descricao ||
+          "",
+
         relacaoComDestino:
           filmeRelacao,
       },
@@ -302,6 +371,7 @@ function AdicionarDestino() {
                   setCidadeDigitada(
                     event.target.value
                   )
+
                   setDestinoEncontrado(false)
                 }}
                 onKeyDown={(event) => {
@@ -375,23 +445,31 @@ function AdicionarDestino() {
                 <div className="form-grid">
 
                   <div className="form-field">
-                    <label>País</label>
+
+                    <label>
+                      País
+                    </label>
 
                     <input
                       type="text"
                       value={pais}
                       readOnly
                     />
+
                   </div>
 
                   <div className="form-field">
-                    <label>Continente</label>
+
+                    <label>
+                      Continente
+                    </label>
 
                     <input
                       type="text"
                       value={continente}
                       readOnly
                     />
+
                   </div>
 
                 </div>
@@ -533,6 +611,7 @@ function AdicionarDestino() {
                 />
 
                 <div>
+
                   <span>
                     Prévia
                   </span>
@@ -541,6 +620,7 @@ function AdicionarDestino() {
                     Essa imagem ficará associada
                     à experiência que você quer viver.
                   </p>
+
                 </div>
 
               </div>
@@ -577,11 +657,13 @@ function AdicionarDestino() {
                 <input
                   type="text"
                   value={filmeTitulo}
-                  onChange={(event) =>
+                  onChange={(event) => {
                     setFilmeTitulo(
                       event.target.value
                     )
-                  }
+
+                    setFilmeEncontrado(null)
+                  }}
                   placeholder="Ex: Meia-Noite em Paris"
                 />
 
@@ -596,17 +678,57 @@ function AdicionarDestino() {
                 <input
                   type="number"
                   value={filmeAno}
-                  onChange={(event) =>
+                  onChange={(event) => {
                     setFilmeAno(
                       event.target.value
                     )
-                  }
+
+                    setFilmeEncontrado(null)
+                  }}
                   placeholder="2011"
                 />
 
               </div>
 
             </div>
+
+            <button
+              type="button"
+              onClick={buscarReferenciaFilme}
+              className="form-action-button"
+            >
+              Buscar filme →
+            </button>
+
+            {filmeEncontrado && (
+              <div className="movie-result">
+
+                {filmeEncontrado.imagem && (
+                  <img
+                    src={filmeEncontrado.imagem}
+                    alt={filmeEncontrado.titulo}
+                  />
+                )}
+
+                <div>
+
+                  <p className="destination-result-label">
+                    Filme encontrado
+                  </p>
+
+                  <h3>
+                    {filmeEncontrado.titulo}
+                  </h3>
+
+                  <p>
+                    {filmeEncontrado.ano ||
+                      "Ano desconhecido"}
+                  </p>
+
+                </div>
+
+              </div>
+            )}
 
             <div className="form-field">
 

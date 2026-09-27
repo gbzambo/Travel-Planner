@@ -771,7 +771,7 @@ const paises = [
             titulo: "Conhecer as Pirâmides de Gizé",
             texto:
               "Quero conhecer as Pirâmides de Gizé pessoalmente.",
-            imagem: "/expcairo.jpg",
+            imagem: "/piramides.jpg",
           },
         ],
       },

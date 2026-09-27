@@ -222,9 +222,16 @@ function DestinoDetalhes() {
 
                   <div className="film-placeholder">
 
-                    <span>
-                      FILME
-                    </span>
+                    {destino.filme.imagem ? (
+                      <img
+                        src={destino.filme.imagem}
+                        alt={`Pôster de ${destino.filme.titulo}`}
+                      />
+                    ) : (
+                      <span>
+                        FILME
+                      </span>
+                    )}
 
                   </div>
 
@@ -242,6 +249,12 @@ function DestinoDetalhes() {
                       <span className="destination-film-year">
                         {destino.filme.ano}
                       </span>
+                    )}
+
+                    {destino.filme.descricao && (
+                      <p className="destination-reference-synopsis">
+                        {destino.filme.descricao}
+                      </p>
                     )}
 
                     {destino.filme.relacaoComDestino && (

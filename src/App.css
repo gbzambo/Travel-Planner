@@ -1482,8 +1482,9 @@ a {
 .destination-place-image > img {
   width: 100%;
   height: 100%;
-
   display: block;
+  object-fit: cover;
+  object-position: center;
 
   /*
     Mantemos cover para preservar o aspecto editorial.
